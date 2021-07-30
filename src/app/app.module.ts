@@ -3,10 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TableBookingComponent } from './table-booking/table-booking.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { OfferPromotionComponent } from './offer-promotion/offer-promotion.component';
+import { NotificationModelsComponent } from './notification-models/notification-models.component';
+import { DeliveryChargesComponent } from './delivery-charges/delivery-charges.component';
+import { CartPageTableBookingNewComponent } from './cart-page-table-booking-new/cart-page-table-booking-new.component';
+import { PaypalCheckoutComponent } from './paypal-checkout/paypal-checkout.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TableBookingComponent,
+    HomePageComponent,
+    CartPageComponent,
+    SignUpComponent,
+    OfferPromotionComponent,
+    NotificationModelsComponent,
+    DeliveryChargesComponent,
+    CartPageTableBookingNewComponent,
+    PaypalCheckoutComponent
   ],
   imports: [
     BrowserModule,
