@@ -1061,12 +1061,133 @@ input.w-button {
     align-items: right;
 }
 
-
-
-
-
-
-
+@media only screen and (max-width:1024px) {
+    #backimg {
+     width:105%;
+    }
+  .slid{
+  width: 107%;
+  }
+  
+  
+  }
+  
+  @media only screen and (max-width:768px) {
+      *{
+          font-size: 10px;
+      }
+      .after-login-content{
+          top:40px;
+          width:80%;
+          height:1%;
+      }
+      .tbtab-single{
+          width:2px;
+          height:1px;
+          align-items: left;
+      }
+      .co-single{
+        position: relative;
+        width: 80%;
+        height: auto;
+        margin: 5%;
+      }
+    .imgs{
+      width: 113%;
+      position: relative;
+    }
+    .div-block-46{
+      right: 8px;
+      position: fixed;
+      top: -27px;
+    }
+    .single-food-name{
+        display: none;
+    }
+    .new-menu-button-div{
+        left:20px;
+    }
+  }
+  
+  
+  @media only screen and (max-width:425px) {
+    *{
+        font-size: 8px;
+    }
+    
+    .after-login-content{
+        top:40px;
+        width:90%;
+        height:1%;
+    }
+    .tbtab-single{
+        width:2px;
+        height:1px;
+        align-items: left;
+    }
+    .co-single{
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin: 3%;
+    }
+   
+    .single-food-name{
+        display: none;
+    }
+    .new-menu-button-div{
+        left:20px;
+    }
+    .star-fa._12 .fa-star{
+        margin-right: 1px;
+    color: #ffa332;
+    font-size: 5px;
+    line-height: 5px;
+    }
+    
+  }
+  
+  
+  
+  
+  
+  @media only screen and (max-width:375px) {
+    *{
+        font-size: 8px;
+    }
+    
+    .after-login-content{
+        top:40px;
+        width:90%;
+        height:1%;
+    }
+    .tbtab-single{
+        width:1px;
+        height:0.5px;
+        align-items: left;
+    }
+    .co-single{
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin: 3%;
+    }
+   
+    .single-food-name{
+        display: none;
+    }
+    .new-menu-button-div{
+        left:20px;
+    }
+    .star-fa._12 .fa-star{
+        margin-right: 1px;
+    color: #ffa332;
+    font-size: 5px;
+    line-height: 5px;
+    }
+   
+}
+  
 
 
 

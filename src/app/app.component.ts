@@ -1,4 +1,7 @@
+import { ApiserviceService } from './apiservice.service';
 import { Component } from '@angular/core';
+import { TokenParams } from './classes/token-params.model';
+
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'food-order';
+
+  tokenParams:TokenParams;
   
+  title = 'food-order';
+  getdata: Object;
+
+ constructor(private apiserviceService: ApiserviceService ){ }
+
+ ngOnInit(){
+
+  this.apiserviceService.login()
+  
+ }
+
+ 
 }

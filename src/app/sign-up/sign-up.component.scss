@@ -416,6 +416,18 @@ form {
     background-color: #ffdede;
 }
 
+@media screen and (max-width:425px){
+    .form-wrapper{
+        font-size: 8px;
+        max-width: 400px;
+        font-weight: 300;
+    }
+    .text-block-26{
+        font-size: 8px;
+
+    }
+    
+}
 
 
 

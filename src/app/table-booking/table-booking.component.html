@@ -62,7 +62,7 @@
   <div class="logo"><img src="..//assets/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
   <h3 class="lg-heading">TABLE BOOKING</h3>
 
-  <div class="hedder-content">
+  <div class="hedder-content tb">
     <form class="form-3">
       <select id="field-10" name="field-10" class="res-tb-select-field person tb-new w-select">
         <option value="1">1 Person</option>
@@ -120,7 +120,10 @@
         <option value="Another Choice">11:30 PM</option>
       </select>
 
-      <a data-w-id="5153ddb6-d164-e6ad-437a-435439917c0c" href="#" class="res-tb-submit w-button">BOOK NOW</a>
+      
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        BOOK NOW
+      </button>
 
 
     </form>
@@ -129,7 +132,7 @@
 </div>
 
 
-<div *ngIf="tab=='two'" class="tabs-content-2 w-tab-content">
+<div *ngIf="tab=='two'" class="tabs-content-2 w-tab-content full">
                     <div data-w-tab="Tab 1" class="res-tb-tab-content w-tab-pane" id="w-tabs-1-data-w-pane-0" role="tabpanel" aria-labelledby="w-tabs-1-data-w-tab-0">
                       <div class="res-tb-mian1 tb-cntr">
                         <div class="form-block-5 w-form">
@@ -199,7 +202,8 @@
                     </div>
                     <div data-w-tab="Tab 2" class="res-tb-tab-content _245 w-tab-pane w--tab-active" id="w-tabs-1-data-w-pane-1" role="tabpanel" aria-labelledby="w-tabs-1-data-w-tab-1">
                       <div class="res-tb-mian2">
-                        <div class="tb-food-menu-mainlleft">
+                        
+                        <div class="tb-food-menu-mainlleft left">
                           <div class="account-div-v2-2">
                             <div class="text-block-24">Account</div>
                             <div class="asap-button-div">
@@ -221,7 +225,7 @@
                             <div class="text-block-23">Your phone number and other informations are safe and hidden in our software. It will be used for automated promotions, 1 click check-out and to serve you better. We are partnered with LOCAL MATE to manage your account.</div>
                           </div>
                         </div>
-                        <div class="tb-food-menu-mainlleft">
+                        <div class="tb-food-menu-mainlleft right">
                           <div class="your-details-form w-form">
                             <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
                               <div class="ur-details-input-div"><input type="text" class="ur-details-input-field w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required=""></div>
@@ -258,6 +262,82 @@
                     </div>
                   </div>
   
+
+
+       <!-- mode window            -->
+       <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="top:50px;left:50px;">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="res-tb-mian2">
+                        
+                <div class="tb-food-menu-mainlleft left" style="width:500px">
+                  <div class="account-div-v2-2">
+                    <div class="text-block-24">Account</div>
+                    <div class="asap-button-div">
+                      <a href="#" class="button-cart login w-inline-block">
+                        <div class="text-block-8">Have an account?</div>
+                        <div class="text-block-9">SIGN IN</div>
+                      </a>
+                      <a href="#" class="button-cart signup gst w-inline-block">
+                        <div class="text-block-8">Check out as</div>
+                        <div class="text-block-9 guest">GUEST</div>
+                      </a>
+                      <a href="#" class="button-cart signup w-inline-block">
+                        <div class="text-block-8">New customer?</div>
+                        <div class="text-block-9">SIGN UP</div>
+                      </a>
+                    </div>
+                    <div class="text-block-23">Sign up and Join our membership program for discounts, customised promotions, loyalty programs and easy check-out.</div>
+                    <div class="description-img"><img src="https://uploads-ssl.webflow.com/5ffc0263a31c9e14f6073e1f/5ffc0263a31c9e1d8c073e38_wf3.jpg" loading="lazy" alt="" class="image-10"></div>
+                    <div class="text-block-23">Your phone number and other informations are safe and hidden in our software. It will be used for automated promotions, 1 click check-out and to serve you better. We are partnered with LOCAL MATE to manage your account.</div>
+                  </div>
+                </div>
+                <div class="tb-food-menu-mainlleft right" style="width:500px">
+                  <div class="your-details-form w-form">
+                    <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
+                      <div class="ur-details-input-div"><input type="text" class="ur-details-input-field w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required=""></div>
+                      <div class="ur-details-input-div"><input type="email" class="ur-details-input-field w-input" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required=""></div>
+                      <div class="ur-details-input-div"><input type="tel" class="ur-details-input-field w-input" maxlength="256" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="+123 456 7890" id="txtTbContactNumber" required=""></div>
+                      <a href="#" class="your-details-submit-btn w-button">BOOK NOW</a>
+                      <div class="ur-details-input-div otp"><input type="number" class="ur-details-input-field w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
+                      <div class="your-submit-notfication">
+                        <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
+                        <div class="notifotpwrong-tb">Incorrect OTP. <a href="#">Resend OTP</a>
+                        </div>
+                      </div>
+                      <div class="successfully-booked-tb">
+                        <div class="text-block-27"><span class="faa"></span>Successfully booked.</div>
+                        <div class="order-details-tb">
+                          <div class="success-booked"><span class="faa"></span>20-01-2021</div>
+                          <div class="success-booked"><span class="faa"></span>10:30 AM</div>
+                          <div class="success-booked"><span class="faa"></span>3 People</div>
+                        </div>
+                      </div>
+                      <div class="your-submit-notfication">
+                        <a href="#" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
+                      </div>
+                    </form>
+                    <div class="w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div class="w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
 </body>
 
 

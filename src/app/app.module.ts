@@ -12,7 +12,8 @@ import { NotificationModelsComponent } from './notification-models/notification-
 import { DeliveryChargesComponent } from './delivery-charges/delivery-charges.component';
 import { CartPageTableBookingNewComponent } from './cart-page-table-booking-new/cart-page-table-booking-new.component';
 import { PaypalCheckoutComponent } from './paypal-checkout/paypal-checkout.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { PaypalCheckoutComponent } from './paypal-checkout/paypal-checkout.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

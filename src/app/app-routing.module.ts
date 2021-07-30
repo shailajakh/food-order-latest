@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule  } from '@angular/router';
 import { CartPageTableBookingNewComponent } from './cart-page-table-booking-new/cart-page-table-booking-new.component';
@@ -12,7 +13,7 @@ import { TableBookingComponent } from './table-booking/table-booking.component';
 
 const routes: Routes = [
 
-  { path :'', component : HomePageComponent },
+  { path :'Home', component : HomePageComponent },
   { path :'sign-up', component : SignUpComponent},
   
   { path :'table-booking', component : TableBookingComponent },
@@ -24,8 +25,11 @@ const routes: Routes = [
 
 ];
 
+
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [HttpClientModule,
+            RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -637,8 +637,28 @@ img {
     text-transform: capitalize;
 }
 
+@media screen and (max-width:768px){
+    .full{
+        height:1000px;
+        background-color: rgb(231, 225, 225);
+    }
+    .left{
+        position: absolute;
+        width:80%;
 
-
+    }
+    .right{
+    position: relative;
+    top:440px;
+    width:90%;
+    
+    } 
+    .tb{
+        width:200px;
+        height: 200px;
+    }
+    
+}
 
 
 
