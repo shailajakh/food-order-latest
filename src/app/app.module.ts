@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableBookingComponent } from './table-booking/table-booking.component';
@@ -12,8 +11,10 @@ import { NotificationModelsComponent } from './notification-models/notification-
 import { DeliveryChargesComponent } from './delivery-charges/delivery-charges.component';
 import { CartPageTableBookingNewComponent } from './cart-page-table-booking-new/cart-page-table-booking-new.component';
 import { PaypalCheckoutComponent } from './paypal-checkout/paypal-checkout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TokenInterceptorService } from './service/token-interceptor.service';
+import { ApiserviceService } from './apiservice.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,10 @@ import { FormsModule } from '@angular/forms';
     FormsModule
     
   ],
-  providers: [],
+  providers: [ApiserviceService,
+              { provide: HTTP_INTERCEPTORS,
+                useClass: TokenInterceptorService,
+                multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

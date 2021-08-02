@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../apiservice.service';
+import { TokenStorageService } from '../service/token-storage.service';
 
 
 @Component({
@@ -9,10 +10,14 @@ import { ApiserviceService } from '../apiservice.service';
 })
 export class HomePageComponent implements OnInit {
   showMe: boolean=true;
-  constructor(private apiserviceService: ApiserviceService ){ }
+  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService){ }
   
-  ngOnInit(): void {
-       
+  ngOnInit(): any {
+    // this.localStorage.removeToken();
+    // this.apiserviceService.readToken(); 
+    // this.apiserviceService.CategoryGet(this.localStorage.getToken());
+
+
       
   }
   toogleTag(){
