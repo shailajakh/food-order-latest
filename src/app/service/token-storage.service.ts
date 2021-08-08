@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ApiserviceService } from '../apiservice.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,11 @@ export class TokenStorageService {
 
   constructor() { }
 
+  
+
+  public isAuthenticated(): boolean {
+    return this.getToken() !== null;
+  }
   setToken(token:string){
     if(!token){
       return console.log("notable to read token");

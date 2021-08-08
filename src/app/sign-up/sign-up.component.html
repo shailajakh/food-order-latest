@@ -1,13 +1,5 @@
 <div class="sign-up">
     <div style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
-        <div class="ndivcloswe">
-            <div class="top-notif-div">
-              <div class="text-block-32 text-danger">OPENING HOURS : 9:30 AM - 8:30 PM</div>
-            </div>
-            <div class="close-copym">
-              <img src="..//assets/baseline_close_black_24dp_1baseline_close_black_24dp.png"class="close" alt="">
-            </div>
-          </div>
         <div class="menubox">
             <nav class="navbar navbar-light bg-light nbar" >
                 <div class="container ">
@@ -34,63 +26,186 @@
               </nav>
               
 
-        </div>
+        </div> 
         
+        
+          <div class="main-content user-login">
+              <div>
+                <div class="form-wrapper">
+                  <div class="fblock">
+                  <h2 class="heading-6">SIGN UP WITH LOCALMATE</h2>
+                  <div class="form-box">
+                    <h3 class="heading-7">Use your social profile to register</h3>
+                    <div class="social-box">
+                      <a href="https://mail.google.com/mail/u/0/#inbox" class="social-login w-inline-block"><img src="../../assets/G.png" alt="" class="image-11">
+                        <div class="div-block-42">
+                          
+                          <div class="text-block-26"> SIGN UP WITH GOOGLE</div>
+                        </div>
+                      </a>
+                      
+                      <a (click)="openModal()" class="btn btn-primary "  class="social-login w-inline-block"><i class="fas fa-user-plus image-11"></i>
+                        <div class="div-block-42">
+                          <p style="padding:0px;color: black;">If Already Member:</p>
+                          <div class="text-block-in"> SIGN IN</div>
+                        </div>
+                      </a>
+                    
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="loginForm" >
+                                <div class="row">
+                                  <div class="col-md-2">
+                                    <label for="FormControlEmail" style="color: lightseagreen;font-size: medium;" ></label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-2">
+                                      <label for="FormControlPassword" style="color: lightseagreen;font-size: medium;" ></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input type="password" formControlName="Password" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                                    </div>
+                                    
+                                  </div>
+                                 
+                                </div>
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    
+                    <div class="div-block-6-copy">
+                      <div class="_1px-div-line"></div>
+                      <h3 class="heading-7">Or register now</h3>
+                      <div class="_1px-div-line"></div>
+                    </div>
 
-        <div class="main-content user-login">
-            <div>
-              <div class="form-wrapper">
-                <h2 class="heading-6">SIGN UP WITH LOCALMATE</h2>
-                <div class="form-box">
-                  <h3 class="heading-7">Use your social profile to register</h3>
-                  <div class="social-box">
-                    <a href="https://mail.google.com/mail/u/0/#inbox" class="social-login w-inline-block"><img src="../../assets/G.png" alt="" class="image-11">
-                      <div class="div-block-42">
+                      
+                     <form [formGroup]="registrationForm" (ngSubmit)="ValidateUser_1(registrationForm.value)" > 
+
+                      <div class="formGroup" >
+                      <div class ="" style="position: relative;margin-left: 25%;width:800px;">
+                         <label for="FormControlFirstName" ></label>
+                          <div class="col-md-5" >
+                            <input type="text" formControlName="FirstName" placeholder="FirstName" class="form-control " aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+  
+                            <label for="FormControlLastName" ></label>
+                       
+                          <div class="col-md-5">
+                            <input type="text" formControlName="LastName" placeholder="LastName" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>                          
+                        </div>
                         
-                        <div class="text-block-26"> SIGN UP WITH GOOGLE</div>
+                            <label for="exampleFormControlSelect1" ></label>
+                          
+                          <div class="col-md-5">
+                            <select type="text" class="form-control" formControlName="Gender" name="Gender" id="exampleFormControlSelect1">
+                              <option value="SelectGender">Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Not prefer to dislose">Not prefer to dislose</option>
+                              </select> 
+                          </div>
+                        
+
+                            <label for="Age"  ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="text" formControlName="Age" class="form-control" placeholder="Age" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+
+                       
+
+                            <label for="DOB" ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="text" formControlName="DOB" class="form-control" placeholder="DOB YYYY-MM-DD" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                          
+                        
+                            <label for="FormControlPassword" ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="password" formControlName="Password" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                          
+                          <label for="Mobile"></label>
+                          <div class="col-md-5">
+                            <input type="text" formControlName="Mobile" class="form-control" placeholder="Mobile" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
+                          </div>
+                          
+                       
+                            <label for="FormControlEmail"  ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          
+                          <button type="button" (click)="requestOTP(registrationForm.value.Email)" >send otp</button>
+                        </div>
+                        
+                        <div class="row" *ngIf="showOtpfeild">
+                            <label for="OTP"  ></label>
+                          <div class="col-md-5">
+                            <input type="text" formControlName="OTP" class="form-control" placeholder="OTP" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                       
+                        </div>
+                        
                       </div>
-                    </a>
-                    <a routerLink="Sign-in-model" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#Sign-in-model" class="social-login w-inline-block"><i class="fas fa-user-plus image-11"></i>
-                      <div class="div-block-42">
-                        <p style="padding:0px;color: black;">If Already Member:</p>
-                        <div class="text-block-in"> SIGN IN</div>
-                      </div>
-                    </a>
-                  </div>
+                      <button type="submit" style="margin-left: 39%;"  class="btn btn-outline-success" ><b>Register</b></button>
+
+                    </div>
+                    </form> 
                   
-                  <div class="div-block-6-copy">
-                    <div class="_1px-div-line"></div>
-                    <h3 class="heading-7">Or register now</h3>
-                    <div class="_1px-div-line"></div>
-                  </div>
-                  <div class="w-form">
-                    <form id="email-form" name="email-form" data-name="Email Form">
-                      <div class="form-field-wrapper">
-                        <div class="tblock"><label for="txtUserName" class="field-label-6">Name</label>
-                            <input type="text" class="text-field-4 w-input" maxlength="256" name="txtUserName" data-name="txtUserName" placeholder="Name" id="txtUserName" required=""></div>
-                        <div class="tblock"><label for="txtUserEmail" class="field-label-6">Last Name</label>
-                            <input type="email" class="text-field-4 w-input" maxlength="256" name="txtUserEmail" data-name="txtUserEmail" placeholder="Email" id="txtUserEmail" required=""></div>
-                        <div class="tblock _2"><label for="txtUserPhone" class="field-label-6">Email</label>
-                            <input type="tel" class="text-field-4 w-input" maxlength="256" name="txtUserPhone" data-name="txtUserPhone" placeholder="Phone Number" id="txtUserPhone"></div>
-                        <div class="tblock _2"><label for="txtUserPassword" class="field-label-6">Password</label>
-                            <input type="text" class="text-field-4 w-input" maxlength="256" name="txtUserPassword" data-name="txtUserPassword" placeholder="Password" id="txtUserPassword" required="">
-                            <input type="text" class="text-field-4 w-input" maxlength="256" name="txtUserPasswordRe" data-name="txtUserPasswordRe" placeholder="Re-enter Password" id="txtUserPasswordRe" required=""></div>
-                      </div>
-                      <input type="submit" value="Register" data-wait="Please wait..." class="button-4 registration w-button">
-                    </form>
-                    <div class="success-message w-form-done">
-                      <div>Thank you! Your submission has been received!</div>
-                    </div>
-                    <div class="w-form-fail">
-                      <div>Oops! Something went wrong while submitting the form.</div>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>
-          </div>
-
+        </div>
 
     </div>
 
 </div>
+
+
+
+
+
+
+<div *ngIf="showModal" class="customModal" >
+  <div class="customModalBody"  >
+
+    <form [formGroup]="modalForm" (ngSubmit)="submitClick()" >
+
+      <div style="margin-left:25%;margin-top: 15%;">
+      <div class="col-md-8" >
+        <label for="emailinput"></label>
+        <input type="text"  name="email" formControlName="email" id="emailinput" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Email" />
+      </div>
+      <div class="col-md-8">
+        <label for="passwordInput"></label>
+        <input name="password" formControlName="password" id="passwordInput" type="password" placeholder="Password"class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"  />
+      </div><br><br>
+      </div>
+      <button type="submit" style="margin-left: 30%;"  class="btn btn-outline-success" data-bs-dismiss="!showModal" ><b>SUBMIT</b></button>
+      <br>
+    </form>
+    
+  </div>
+</div>
+

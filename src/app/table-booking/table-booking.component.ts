@@ -1,4 +1,6 @@
+import { ApiserviceService } from './../apiservice.service';
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../service/token-storage.service';
 
 @Component({
   selector: 'app-table-booking',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableBookingComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService) { }
   tab='one';
+  ngOnInit(): void {
+   
+
+
+  }
+ 
+ 
   
 }

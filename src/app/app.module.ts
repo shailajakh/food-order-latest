@@ -12,7 +12,7 @@ import { DeliveryChargesComponent } from './delivery-charges/delivery-charges.co
 import { CartPageTableBookingNewComponent } from './cart-page-table-booking-new/cart-page-table-booking-new.component';
 import { PaypalCheckoutComponent } from './paypal-checkout/paypal-checkout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { ApiserviceService } from './apiservice.service';
 
@@ -33,12 +33,12 @@ import { ApiserviceService } from './apiservice.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
-    
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ApiserviceService,
               { provide: HTTP_INTERCEPTORS,
-                useClass: TokenInterceptorService,
+                useClass : TokenInterceptorService,
                 multi: true}],
   bootstrap: [AppComponent]
 })

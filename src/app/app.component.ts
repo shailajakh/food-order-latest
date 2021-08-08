@@ -14,24 +14,24 @@ import { TokenStorageService } from './service/token-storage.service';
 export class AppComponent {
 
   tokenParams:TokenParams;
-  
+  day:string="";
   title = 'food-order';
+
+
+ constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService){ }
+ 
+
+ ngOnInit()
+ {
+  this.openingHours();
   
-
-
- constructor(private apiserviceService: ApiserviceService,private _http : HttpClient,private localStorage : TokenStorageService  ){ }
-
- ngOnInit(){
-
-  this.localStorage.removeToken();
-  this.apiserviceService.readToken(); 
- this.apiserviceService.CategoryGet(this.localStorage.getToken());
+    //this.apiserviceService.readToken(); 
+  //this.apiserviceService.CategoryGet(this.localStorage.getToken());
  //  this.apiserviceService.ItemGet();
 // //   this.apiserviceService.ItemByIDGet();
 //    this.apiserviceService.UserAddressGet();
 //    this.apiserviceService.OutletOpeningHoursGet();
 //    this.apiserviceService.StripeAccountIDGet();
-
 
   //  post
 
@@ -46,6 +46,46 @@ export class AppComponent {
   // this.apiserviceService.TableBookingInsertStep2();
 
 
+ }
+ hour =[];
+ openingHours(){
+  
+   this.apiserviceService.OutletOpeningHoursGet().subscribe(
+     (response) => {
+       console.log("OutletOpeningHoursGet receive responce",response);
+
+       if (response.Result) {
+           this.hour=response.Result;
+
+           switch (new Date().getDay()) {
+             case 0:
+               this.day = "Sunday";
+               return this.hour;
+             case 1:
+               this.day = "Monday";
+               return this.hour;
+             case 2:
+               this.day = "Tuesday";
+               return this.hour;
+             case 3:
+               this.day = "Wednesday";
+               return this.hour;
+             case 4:
+               this.day = "Thursday";
+               return this.hour;
+             case 5:
+               this.day = "Friday";
+               return this.hour;
+             case 6:
+               this.day = "Saturday";
+               return this.hour;        
+           }
+           console.log("OutletOpeningHoursGet success!",response.Result);
+       } else {
+           return false;
+       }
+     },
+     error => console.log("User OutletOpeningHoursGet failed!",error));
  }
 
  

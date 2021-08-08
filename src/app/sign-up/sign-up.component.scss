@@ -15,7 +15,10 @@
     position: relative;
     right: -6px;
   }
+.w-25{
+    margin-right: 180px;
 
+}
   #backimg{
     
     background-image: url("../../assets/pizza-bg-p-500.jpeg");
@@ -292,6 +295,7 @@ img {
 .div-block-42 {
     margin-left: 10px;
     text-align: center;
+    cursor: pointer;
     
 
 }
@@ -344,6 +348,7 @@ img {
     height: 0.8px;
     background-color: #e4e4e4;
 }
+
 ._1px-div-line {
     width: 40%;
     height: 0.8px;
@@ -428,8 +433,83 @@ form {
     }
     
 }
+// mysignup
 
+.side{
+    display: flex;
+    justify-content: space-evenly;
 
+}
+.margin{
+    margin-left: -228px;
+}
+
+.gen{
+    margin-left: 269px;
+}
+
+.dob{
+    position: relative;
+    right: 283px;
+    width: 296px;
+}
+.mail{
+    margin-left: -239px;
+}
+.date{
+    position: relative;
+    right: 280px;
+}
+.age{
+    position: relative;
+    left: 38.7rem;
+    bottom: 4rem;
+}
+.check{
+    margin-left: 17.5rem;
+}
+.cancel{
+    margin-left: 44px;
+}
+
+.customModal{
+    position:fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 999;
+    width:100vw;
+    height:100vh;
+    background:rgba(0, 0, 0, 0.548) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customModalBody{
+    width:350px;
+    height:270px;
+    background: white;
+}
+
+.fblock{
+    display: block;
+  //  border: solid 1px;
+    align-items: center;
+    width:800px;
+    margin:5px;
+}
+.first{
+    position: relative;
+    display: flex;
+    left:5px;
+    width:100px;
+}
+.second{
+    position: relative;
+    display: flex;
+    left:5px;
+    width:100px;
+}
 
 
 

@@ -47,98 +47,57 @@ export class ApiserviceService {
 
 CategoryGet(token:any):any{
 
-                this._http.get<any>('https://tketz.in/api/wm/CategoryGet')
-                .subscribe(
-                  (response) => {
-                    console.log("CategoryGet receive responce",response);
+               return this._http.get<any>('https://tketz.in/api/wm/CategoryGet');
+                // .subscribe(
+                //   (response) => {
+                //     console.log("CategoryGet receive responce",response);
 
-                    if (response.Result) {
-                        console.log("CategoryGet success!",response.Result);     
-                        return response.Result;
-                    } else {
-                        return false;
-                    }
-                  },
-                  error => console.log("User CategoryGet failed!",error));
+                //     if (response.Result) {
+                //         console.log("CategoryGet success!",response.Result);     
+                //         return response.Result;
+                //     } else {
+                //         return false;
+                //     }
+                //   },
+                //   error => console.log("User CategoryGet failed!",error));
+                
                   
               }
 
 
-ItemGet():any{
+ItemGet(id):any{
 
-                this._http.get<any>('https://tketz.in/api/wm/ItemGet?categoryID=12').subscribe(
-                  (response) => {
-                    console.log("ItemGet receive responce",response);
+                return this._http.get<any>('https://tketz.in/api/wm/ItemGet?categoryID='+id)
+                // .subscribe(
+                //   (response) => {
+                //     console.log("ItemGet receive responce",response);
 
-                    if (response.Result) {
-                        console.log("CategoryGet success!",response.Result); 
-                        return response.Result;
-                    } else {
-                        return false;
-                    }
-                  },
-                  error => console.log("User CategoryGet failed!",error));
+                //     if (response.Result) {
+                //         console.log("CategoryGet success!",response.Result); 
+                //         return response.Result;
+                //     } else {
+                //         return false;
+                //     }
+                //   },
+                //   error => console.log("User CategoryGet failed!",error));
               }
 
 ItemByIDGet():any{
 
-                this._http.get<any>('https://tketz.in/api/wm/ItemByIDGet?ID=10').subscribe(
-                  (response) => {
-                    console.log("ItemByIDGet receive responce",response);
-
-                    if (response.Result) {
-                        console.log("ItemByIDGet success!",response.Result); 
-                        return response.Result;
-                    } else {
-                        return false;
-                    }
-                  },
-                  error => console.log("User ItemByIDGet failed!",error));
+                return this._http.get<any>('https://tketz.in/api/wm/ItemByIDGet?ID=10');
               }
 UserAddressGet():any{
 
-  this._http.get<any>('https://tketz.in/api/wm/UserAddressGet?guid=40FE2447-BA30-4910-BB6F-F60F2E26A1A9').subscribe(
-                  (response) => {
-                    console.log("ItemByIDGet receive responce",response);
-
-                    if (response.Result) {
-                        console.log("ItemByIDGet success!",response.Result); 
-                        return response.Result;
-                    } else {
-                        return false;
-                    }
-                  },
-                  error => console.log("User ItemByIDGet failed!",error));
+  return this._http.get<any>('https://tketz.in/api/wm/UserAddressGet?guid=40FE2447-BA30-4910-BB6F-F60F2E26A1A9');
 }
 OutletOpeningHoursGet():any{
 
-  this._http.get<any>('https://tketz.in/api/wm/OutletOpeningHoursGet').subscribe(
-    (response) => {
-      console.log("OutletOpeningHoursGet receive responce",response);
-
-      if (response.Result) {
-          console.log("OutletOpeningHoursGet success!",response.Result); 
-          return response.Result;
-      } else {
-          return false;
-      }
-    },
-    error => console.log("User OutletOpeningHoursGet failed!",error));
+  return this._http.get<any>('https://tketz.in/api/wm/OutletOpeningHoursGet');
+  
 }
 StripeAccountIDGet():any{
 
-  this._http.get<any>('https://tketz.in/api/wm/StripeAccountIDGet').subscribe(
-    (response) => {
-      console.log("StripeAccountIDGet receive responce",response);
-
-      if (response.Result) {
-          console.log("StripeAccountIDGet success!",response.Result); 
-          return response.Result;
-      } else {
-          return false;
-      }
-    },
-    error => console.log("User StripeAccountIDGet failed!",error));
+  return this._http.get<any>('https://tketz.in/api/wm/StripeAccountIDGet');
 }
 
 
@@ -148,150 +107,140 @@ StripeAccountIDGet():any{
 
 // 2nd post
 
-Orderinsert():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
-  var body={
-    "GUID": "40FE2447-BA30-4910-BB6F-F60F2E26A1A9",
-      "AddressID": "2",
+
+Orderinsert(body:any):any{
+  // var body={
+  //   "GUID": "40FE2447-BA30-4910-BB6F-F60F2E26A1A9",
+  //     "AddressID": "2",
   
-      "DeliveryCharge": "2",
-    "DeliveryPromotionID": "1",
-    "DeliveryPromotionType": "deliverypromotion",
-      "PreOrderAlarmValue": "0",
-    "FullfillmentAlarmValue": "15",
+  //     "DeliveryCharge": "2",
+  //   "DeliveryPromotionID": "1",
+  //   "DeliveryPromotionType": "deliverypromotion",
+  //     "PreOrderAlarmValue": "0",
+  //   "FullfillmentAlarmValue": "15",
   
-    "Note": "Less spicy",
-    "IsPreOrder": "0",
-    "IsTakeAway": "0",
-    "PreOrderTime": "0",
+  //   "Note": "Less spicy",
+  //   "IsPreOrder": "0",
+  //   "IsTakeAway": "0",
+  //   "PreOrderTime": "0",
   
-    "OrderDetails": [{
-        "ItemID": "16",
-        "GUID": "123",
-        "Note": "hi",
-        "Quantity": "2",
-        "AddOns": [{
-          "ID": "1",
-          "Quantity": "1"
-        }],
-        "FoodTypes": [{
-          "ID": "9"
-        }],
-        "CombineItems": [{
-          "CombineItemID": "4",
-          "Quantity": "1"
-        }]
-      },
-      {
-        "ItemID": "6",
-        "GUID": "321",
-        "Note": "hi",
-        "Quantity": "2",
-        "PromotionID": "1",
-        "PromotionType": "promotionitem",
-        "AddOns": [{
-          "ID": "9",
-          "Quantity": "1"
-        }],
-        "FoodTypes": [],
-        "CombineItems": []
-      }
-    ],
-    "OrderCombos": [{
-        "ComboID": "3",
-        "GUID": "456",
-        "Note": "hi",
-        "Price": "12",
-        "PromotionID": "1",
-        "PromotionType": "promotioncombo",
-        "OrderComboItems": [{
-            "ItemID": "8",
-            "AddOns": [{
-              "ID": "10"
-            }, {
-              "ID": "11"
-            }],
-            "FoodTypes": [{
-              "ID": "8"
-            }]
-          },
-          {
-            "ItemID": "7",
-            "AddOns": [{
-              "ID": "12"
-            }],
-            "FoodTypes": [{
-              "ID": "5"
-            }]
-          }
-        ]
-      }
+  //   "OrderDetails": [{
+  //       "ItemID": "16",
+  //       "GUID": "123",
+  //       "Note": "hi",
+  //       "Quantity": "2",
+  //       "AddOns": [{
+  //         "ID": "1",
+  //         "Quantity": "1"
+  //       }],
+  //       "FoodTypes": [{
+  //         "ID": "9"
+  //       }],
+  //       "CombineItems": [{
+  //         "CombineItemID": "4",
+  //         "Quantity": "1"
+  //       }]
+  //     },
+  //     {
+  //       "ItemID": "6",
+  //       "GUID": "321",
+  //       "Note": "hi",
+  //       "Quantity": "2",
+  //       "PromotionID": "1",
+  //       "PromotionType": "promotionitem",
+  //       "AddOns": [{
+  //         "ID": "9",
+  //         "Quantity": "1"
+  //       }],
+  //       "FoodTypes": [],
+  //       "CombineItems": []
+  //     }
+  //   ],
+  //   "OrderCombos": [{
+  //       "ComboID": "3",
+  //       "GUID": "456",
+  //       "Note": "hi",
+  //       "Price": "12",
+  //       "PromotionID": "1",
+  //       "PromotionType": "promotioncombo",
+  //       "OrderComboItems": [{
+  //           "ItemID": "8",
+  //           "AddOns": [{
+  //             "ID": "10"
+  //           }, {
+  //             "ID": "11"
+  //           }],
+  //           "FoodTypes": [{
+  //             "ID": "8"
+  //           }]
+  //         },
+  //         {
+  //           "ItemID": "7",
+  //           "AddOns": [{
+  //             "ID": "12"
+  //           }],
+  //           "FoodTypes": [{
+  //             "ID": "5"
+  //           }]
+  //         }
+  //       ]
+  //     }
   
-    ]
-  };
-  this._http.post<any>('https://tketz.in/api/wm/OrderInsert',body,{headers}).subscribe((response)=>{
-                      console.log(" Orderinsertreceived responce",response);
-  })
+  //   ]
+  // };
+  
+  return this._http.post<any>('https://tketz.in/api/wm/OrderInsert',body)
 }
    
 
 // 3rdpost
 
-Userinsert():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
-  var body={
-    'FirstName':'John',
-   'LastName':'Smith' ,
-    'Gender':'male',
-    'Age':'25',
-    'DOB':'1987-07-04',
-    'Password':'123',
-    'Mobile':'9847121454',
-    'OTP':'8536',
-    'Email':'paul%40wh.com'
+Userinsert(body:any):any{
+  // var body={
+  //   'FirstName':'John',
+  //  'LastName':'Smith' ,
+  //   'Gender':'male',
+  //   'Age':'25',
+  //   'DOB':'1987-07-04',
+  //   'Password':'123',
+  //   'Mobile':'9847121454',
+  //   'OTP':'8536',
+  //   'Email':'paul%40wh.com'
     
-  };
-
-  this._http.post<any>('https://tketz.in/api/wm/UserInsert',body,{headers}).subscribe((response)=>{
-                      console.log(" Userinsert received responce",response);
-  })
+  // };
+          console.log("user data",body)
+  return this._http.post<any>('https://tketz.in/api/wm/UserInsert',body);
 }
 
 // 4th post
 
-GenerateOtp():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
+GenerateOtp(email):any{
   var body={
-    'Email':'fajarpm%40gmail.com',
+    'Email':email,
     'Mobile':'9567775511'
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/GenerateOTP',body,{headers}).subscribe((response)=>{
-                      console.log("GenerateOtp received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/GenerateOTP',body);
 }
 
 // 5th post
 
-Validateuser():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
+Validateuser1(email,password):any{
+
   var body={
-    'Email':'9567775511',
-    'Password':'123'
+    'Email':email,
+    'Password':password
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/ValidateUser',body,{headers}).subscribe((response)=>{
-                      console.log("Validateuser received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/ValidateUser',body);
 }
 
 
 // 6th post
 
 UserAddressInsert():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
   var body={
     'GUID':'5465646',
     'Name':'Smith',
@@ -306,16 +255,13 @@ UserAddressInsert():any{
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/UserAddressInsert',body,{headers}).subscribe((response)=>{
-                      console.log("UserAddressInsert received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/UserAddressInsert',body);
 }
 
 // 7th post
 
 
 UserAddressUpdate():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
   var body={
     'ID':'2',
     'GUID':'5465646',
@@ -331,9 +277,7 @@ UserAddressUpdate():any{
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/UserAddressUpdate',body,{headers}).subscribe((response)=>{
-                      console.log("UserAddressUpdate received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/UserAddressUpdate',body);
 }
 
 
@@ -342,7 +286,6 @@ UserAddressUpdate():any{
 
 
 GenerateBookingOTP():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
   var body={
     'Customer':'Fajar',
     'Email':'fajarpm%40gmail.com',
@@ -350,15 +293,13 @@ GenerateBookingOTP():any{
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/GenerateBookingOTP',body,{headers}).subscribe((response)=>{
-                      console.log("GenerateBookingOTP received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/GenerateBookingOTP',body);
 }
 
 // 9th post
 
 TableBookingInsertStep1():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
+
   var body={
     'GUID':'8444C9A7-C23B-4B65-B55E-8093D8BE63C5',
     'TablePromotionID':'1',
@@ -373,9 +314,7 @@ TableBookingInsertStep1():any{
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/GenerateBookingOTP',body,{headers}).subscribe((response)=>{
-                      console.log("TableBookingInsertStep1 received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/GenerateBookingOTP',body)
 }
 
 
@@ -383,7 +322,6 @@ TableBookingInsertStep1():any{
 
 
 TableBookingInsertStep2():any{
-  const headers = { 'Authorization': 'Bearer this.Token'};
   var body={
   	"GUID": "8444C9A7-C23B-4B65-B55E-8093D8BE63C5",
     "OrderID": "107",
@@ -457,12 +395,8 @@ TableBookingInsertStep2():any{
     
   };
 
-  this._http.post<any>('https://tketz.in/api/wm/TableBookingInsertStep2',body,{headers}).subscribe((response)=>{
-                      console.log("TableBookingInsertStep2 received responce",response);
-  })
+  return this._http.post<any>('https://tketz.in/api/wm/TableBookingInsertStep2',body);
 }
-
-
 
 
 

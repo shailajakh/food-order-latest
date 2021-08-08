@@ -13,7 +13,7 @@ import { TableBookingComponent } from './table-booking/table-booking.component';
 
 const routes: Routes = [
 
-  { path :'Home', component : HomePageComponent },
+  { path :'', component : HomePageComponent },
   { path :'sign-up', component : SignUpComponent},
   
   { path :'table-booking', component : TableBookingComponent },

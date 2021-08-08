@@ -1,18 +1,20 @@
 .ndivcloswe {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 5px 10px;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
+  display: flex;
+  align-items: left;
+  font-weight: 600;
+  height: 40px;
+  background-color: rgb(247, 243, 247);
+}
+.ptime{
+  display: flex;
+  top:1px;
+
+}
+.pday{
+  display: flex;
+
+}
+
   .close{
     width: 18px;
     position: relative;
@@ -27,10 +29,8 @@
   }
   
   .close-copym {
-    position: static;
-    left: auto;
-    top: -30px;
-    right: -30px;
+    position: relative;
+    right:0px;
     bottom: auto;
     z-index: 999999;
     width: 30px;
@@ -51,9 +51,6 @@
   }
   
   .head-sectionmnu {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
     padding-right: 20px;

@@ -1,14 +1,13 @@
-<!-- <app-paypal-checkout></app-paypal-checkout>
 
-<form #f="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    <input name="first" ngModel required #first="ngModel">
-    <input name="last" ngModel>
-    <button>Submit</button>
-  </form>-->
-  <h1>testing token acces</h1>
-
-
-
+ <div class="ndivcloswe text-danger ">
+  <p class="pday">OPENING HOURS: {{ day }}</p>
+  <div *ngFor="let item of hour; let ind=index;">
+    <div >
+      <p *ngIf="item.Day===day" class="ptime">&nbsp;{{item.StartTime}} AM : {{ item.EndTime }} PM</p>
+  </div> 
+</div>
+ 
+</div>
 
 
 

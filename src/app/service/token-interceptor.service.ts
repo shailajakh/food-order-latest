@@ -13,11 +13,11 @@ import { TokenStorageService } from './token-storage.service';
   providedIn: 'root'
 })
 export class TokenInterceptorService implements HttpInterceptor{
-  constructor(private tokenStorage : TokenStorageService ) { }
+  constructor(private localStorage : TokenStorageService ) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
 
-    const token: string = this.tokenStorage.getToken();
+    const token: string = this.localStorage.getToken();
 
     if (token) {
         request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
