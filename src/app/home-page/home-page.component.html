@@ -1,7 +1,7 @@
 
 
 
-
+<div>
 <div id="backimg"class="head-sectionmnu">
   <div class="logo"><img src="..//assets/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
   <div class="single-food-name">
@@ -55,155 +55,84 @@
   </div>
 </div>
 
-<div class="row-3">
-  <div class="card-group col-md-10">
+<div class="row" >
+  <div class="card-group col-md-9" style="display: flex;margin-left: 20px;">
     <div *ngFor="let item of foodItems" >
-      <div class="card" style="width: 18rem; margin:10px;height: 550px;">
+      <div class="card" style="width: 18rem; margin:10px;height: 550px;background-color: rgb(246, 246, 248);">
         <img [src]="item.URL" class="card-img-top" alt="..." style="position: relative;width: 90%;">
         <div class="card-body">
           <h5 class="card-title">{{item.Name}}</h5>
           <p class="card-text">{{item.Description}}</p>
-          <div >
-          <h5 class="card-text">{{item.Price| currency}}</h5>
-          <button type="button" class="btn " style="position: relative;background-color: rgb(245, 164, 58);margin-left: 25%;bottom: 5px;">ADD TO CART</button>
+          <div class=" set" >
+          
+          <button type="button" class="btn bg-warning bn" data-bs-toggle="modal" data-bs-target="#addOnModal" (click)="addToCart(item.ID)" >ADD TO CART</button><br>
+          <h5 class="card-text pr">{{item.Price| currency}}</h5>
         </div>
         </div>
       </div>
     </div>
   </div>
-</div>    
+  <div class="col-md-2" style="display: flex;">
+
+    <div *ngIf="showMe">
+      <div class="div-block-46">
+        <div class="head cartt">
+          <div class="div-block-50 d-flex">
+            <h1 class="heading-10">Cart</h1>
+            <div class="text-block-33">{{count}}</div>
+          </div>
+        </div>
+        <div *ngFor="let item of foodItems" >
+          <div class="card" >
+            
+          </div>
+        </div>
+    
+         <div class="div-block-48">
+          <div class="food-listt">
+            
+            <div class="single-food-list">
+              <div *ngFor="let i of cartitem" >
+              <div class="food-name-div">
+                <div class="cart-food-name"> {{i.cartitem.Name}}</div>     
+                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addOnModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
+              </div>
+              <div class="cart-single-food-price">
+                <div>{{i.cartitem.Price | currency}}</div>
+                <div class="cart-food-name-copy">
+                  <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+           
+          </div>
+        </div> 
+        <div class="main-page-cart-div">
+          <div class="sub-total">
+            <div class="text-block-34">Sub total</div>
+            <div class="text-block-34"><span class="text-span-8 text-warning">50$</span></div>
+          </div>
+          <div class="sub-total">
+            <div class="text-block-34 small">Sub total</div>
+          </div>
+          <button class="check btn btn-success "routerLink="/cart-page">CHECKOUT</button>
+        </div>
+      </div>
+    
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
 
 
 
   
-
-
-
-
-
-  <div *ngIf="showMe"class="col-md-3" >
-    <div class="div-block-46"style="position:relative;margin-right: 0rem;margin-top: 0rem;float: right;">
-      <div class="head cartt">
-        <div class="div-block-50 d-flex">
-          <h1 class="heading-10">Cart</h1>
-          <div class="text-block-33">5 Items</div>
-        </div>
-        <!-- <div data-w-id="e2a539aa-54a3-5cce-9192-33ea50f27841" class="div-block-51">
-          <a href="#" class="link-13"><span class="text-span-9"></span></a>
-        </div> -->
-      </div>
-      <div *ngFor="let item of foodItems" >
-        <div class="card" >
-          
-        </div>
-      </div>
-
-       <div class="div-block-48">
-        <div class="food-listt">
-          <div class="single-food-list">
-            <div *ngFor="let i of orderinsert" >
-            <div class="food-name-div">
-              <div class="cart-food-name"> {{i.orderinsert.ItemID}}</div>
-              
-              <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$10</div>
-              <div class="cart-food-name-copy">
-                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-          <!-- <div class="single-food-list">
-            <div class="food-name-div">
-              <div class="cart-food-name"> Chicken bitriyani x2</div>
-              <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png" class="orange"alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$20</div>
-              <div class="cart-food-name-copy">
-                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="single-food-list">
-            <div class="food-name-div">
-              <div class="cart-food-name">Burger</div>
-              <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$2</div>
-              <div class="cart-food-name-copy">
-                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="single-food-list">
-            <div class="food-name-div">
-              <div class="cart-food-name"> Pizza x2</div>
-              <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$10</div>
-              <div class="cart-food-name-copy">
-                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-
-
-            </div>
-          </div>
-          <div class="single-food-list">
-            <div class="food-name-div">
-              <div class="cart-food-name"> Pizza x2</div>
-              <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$10</div>
-              <div class="cart-food-name-copy">
-                <a href="#" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="single-food-list">
-            <div class="food-name-div">
-              <div class="cart-food-name"> Pizza x2</div>
-              <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$10</div>
-              <div class="cart-food-name-copy">
-                <a href="#" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="single-food-list">
-            <div class="food-name-div">
-              <div class="cart-food-name"> Pizza x2</div>
-              <a hclass="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
-            </div>
-            <div class="cart-single-food-price">
-              <div>$10</div>
-              <div class="cart-food-name-copy">
-                <a href="#" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div> 
-      <div class="main-page-cart-div">
-        <div class="sub-total">
-          <div class="text-block-34">Sub total</div>
-          <div class="text-block-34"><span class="text-span-8 text-warning">50$</span></div>
-        </div>
-        <div class="sub-total">
-          <div class="text-block-34 small">Sub total</div>
-        </div>
-        <button class="check btn btn-success "routerLink="/cart-page">CHECKOUT</button>
-      </div>
-    </div>
-
-  </div>
 
 
 
@@ -214,18 +143,19 @@
   
 </button>
 
-
+</div>
 
 
 <div class="container">
   <!-- Button trigger modal -->
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addOnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
             <h3 class="heading-3">Pizza One</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          ></button>
         </div>
         
         <div class="modal-body">
@@ -494,7 +424,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button routerLink="cart-page" type="button" style="width:400px" class="btn btn-warning">ADD TO CART</button>
+          <button routerLink="cart-page" type="button" style="width:400px" class="btn btn-warning"
+          >ADD TO CART</button>
         </div>
       </div>
     </div>

@@ -122,68 +122,65 @@
       </div>
      
       
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add New Address</h5>
+              <h5 class="modal-title" id="addressModalLabel">Add New Address</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-<form  [formGroup]="loginForm" (ngSubmit)="loginUser()">
-    <div class="d-flex mt-5">
-    <div class="grp form-group">
-      
-      <input type="email" formControlName="email" name="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-   
-    </div>
-    <div class="d-flex mt-5">
-        <div class="form-group">
-            <select name="Deliverytype" formControlName="Deliverytype" class="form-select" aria-label="Default select example">
-              
-                <option value="Address Type">Address Type</option>
-                <option value="Home">Home</option>
-                <option value="Office">Office</option>
-               
-               </select> 
-         
-            </div>
-        <div class="side form-group">
-         
-          <input type="text" class="form-control w-100"name="Deliverylocation" formControlName="Deliverylocation" id="exampleInputtext" placeholder="Delivery Location">
-        </div>
-        </div>
-
-        
-        <div class="d-flex mt-5">
-            <div class="form-group">
-              
-              <input type="text" class="form-control" name="Street"formControlName="Street" id="exampleInputtext" aria-describedby="StreetHelp" placeholder="Street">
-                </div>
-            <div class="side form-group">
-             
-              <input type="text" class="form-control" name="Suburb" formControlName="Suburb"id="exampleInputtext" placeholder="Suburb">
-            </div>
-            </div>
-
-            <div class="d-flex mt-5">
-                <div class="form-group">
-                  
-                  <input type="text" class="form-control" name="City" formControlName="City" id="exampleInputtext" aria-describedby="StreetHelp" placeholder="City">
+                <form  [formGroup]="addreForm" (ngSubmit)="userAddress()">
+                    <div class="d-flex mt-5">
+                    <div class="grp form-group">
+                      
+                      <input type="email" formControlName="email" name="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
                     </div>
-                <div class="side form-group">
-                 
-                  <input name="Pincode" max="6" formControlName="Pincode" type="number" class="form-control " id="exampleInputtext" placeholder="Pincode">
-                </div>
-                </div>
-    
-                <div class="modal-footer" >
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="margin-right: 10px;">Close</button>
-                  <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Submit</button>
-                </div>
-  </form>
+                    <div class="d-flex mt-5">
+                        <div class="form-group">
+                            <select name="Deliverytype" formControlName="Deliverytype" class="form-select" aria-label="Default select example">
+                                <option value="Address Type" selected>Address Type</option>
+                                <option value="Home">Home</option>
+                                <option value="Office">Office</option>
+                              </select> 
+                        
+                            </div>
+                        <div class="side form-group">
+                        
+                          <input type="text" class="form-control w-100"name="Deliverylocation" formControlName="Deliverylocation" id="exampleInputtext" placeholder="Delivery Location">
+                        </div>
+                        </div>
+
+                        
+                        <div class="d-flex mt-5">
+                            <div class="form-group">
+                              
+                              <input type="text" class="form-control" name="Street"formControlName="Street" id="exampleInputtext" aria-describedby="StreetHelp" placeholder="Street">
+                                </div>
+                            <div class="side form-group">
+                            
+                              <input type="text" class="form-control" name="Suburb" formControlName="Suburb"id="exampleInputtext" placeholder="Suburb">
+                            </div>
+                            </div>
+
+                            <div class="d-flex mt-5">
+                                <div class="form-group">
+                                  
+                                  <input type="text" class="form-control" name="City" formControlName="City" id="exampleInputtext" aria-describedby="StreetHelp" placeholder="City">
+                                    </div>
+                                <div class="side form-group">
+                                
+                                  <input name="Pincode" max="6" formControlName="Pincode" type="number" class="form-control " id="exampleInputtext" placeholder="Pincode">
+                                </div>
+                                </div>
+                    
+                                <div class="modal-footer" >
+                                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="margin-right: 10px;">Close</button>
+                                  <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Submit</button>
+                                </div>
+                  </form>
             </div>
             
           </div>
@@ -746,7 +743,7 @@
                   <div class="account-div-v2">
                     <div class="address-head">
                       <h3 class="heading-4 delivery">Delivery Address</h3>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal">
                         ADD NEW
                       </button>
 
@@ -758,7 +755,7 @@
                         <div class="addressdetails"><span class="address-name">{{item.Name}}</span><br><span class="cart-address">{{item.DeliveryLocation}}<br>
                           {{item.Street}},{{item.Suburb}}<br>{{item.City}}-{{item.Pincode}}</span><br><span class="user-mob">{{item.Mobile}}<br></span><span class="user-mail">{{item.Email}}</span></div>
                         
-                        <button type="button" data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1b63" href="#" class="address-btn w-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1b63" href="#" class="address-btn w-button" data-bs-toggle="modal" data-bs-target="#addressModal">
                           EDIT
                         </button>
                       </div>
@@ -788,138 +785,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="cart-right hide">
-                  <div class="cart-food-list">
-                    <div class="food-listt">
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1ea0" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$10</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name"> Chicken bitriyani x2</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1eaf" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$20</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name">Burger</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1ebe" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$2</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1ecd" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$10</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1edc" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$10</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1eeb" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$10</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="single-food-list">
-                        <div class="food-name-div">
-                          <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1efa" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
-                        </div>
-                        <div class="cart-single-food-price">
-                          <div>$10</div>
-                          <div class="cart-food-name-copy">
-                            <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="bill-details-wrapper">
-                      <div class="cooking-instruction-div">
-                        <a data-w-id="7fff5bab-69cb-569e-08c2-c2eb59bd1f07" href="#" class="link-7">Add special cooking instructions.</a>
-                      </div>
-                      <div class="cooking-instruction-div">
-                        <div class="form-block-2 no-margin w-form">
-                          <form id="email-form-5" name="email-form-5" data-name="Email Form 5"><input type="text" class="text-field-2 dark w-input" maxlength="256" name="txtCouponCode-4" data-name="Txt Coupon Code 4" placeholder="Enter valid coupon code" id="txtCouponCode-4">
-                            <div class="coupon-statsu-message success"><span class="text-span-7"></span>Coupon code applied successfully</div>
-                            <div class="coupon-statsu-message invalid"><span class="text-span-7"></span>Coupon code invalid/expired.</div>
-                          </form>
-                          <div class="w-form-done">
-                            <div>Thank you! Your submission has been received!</div>
-                          </div>
-                          <div class="w-form-fail">
-                            <div>Oops! Something went wrong while submitting the form.</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="billing-details-cart">
-                        <div class="text-block-22">Bill Details</div>
-                        <div class="billing-details-single-div">
-                          <div class="item-data-txt">Item Total</div>
-                          <div class="item-data-txt">$30</div>
-                        </div>
-                        <div class="billing-details-single-div">
-                          <div class="item-data-txt">Promotions on category</div>
-                          <div class="item-data-txt applied">$6</div>
-                        </div>
-                        <div class="billing-details-single-div">
-                          <div class="item-data-txt">Delivery Charge</div>
-                          <div class="item-data-txt">$5</div>
-                        </div>
-                        <div class="billing-details-single-div">
-                          <div class="item-data-txt">Taxes &amp; Charges</div>
-                          <div class="item-data-txt">$2</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="payment-div _2">
-                    <div class="topay">TOTAL</div>
-                    <div class="to-pay-amount">$45</div>
-                  </div>
-                </div>
+                
               </div>
             </div>
             </div>
@@ -1115,63 +981,3 @@
 </div>
 </div>
 
-
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-3">
-          <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">First name</label>
-            <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
-          </div>
-          <div class="col-md-4">
-            <label for="validationDefault02" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
-          </div>
-          <div class="col-md-4">
-            <label for="validationDefaultUsername" class="form-label">Username</label>
-            <div class="input-group">
-              <span class="input-group-text" id="inputGroupPrepend2">@</span>
-              <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label for="validationDefault03" class="form-label">City</label>
-            <input type="text" class="form-control" id="validationDefault03" required>
-          </div>
-          <div class="col-md-3">
-            <label for="validationDefault04" class="form-label">State</label>
-            <select class="form-select" id="validationDefault04" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="col-md-3">
-            <label for="validationDefault05" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="validationDefault05" required>
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-              <label class="form-check-label" for="invalidCheck2">
-                Agree to terms and conditions
-              </label>
-            </div>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div> -->

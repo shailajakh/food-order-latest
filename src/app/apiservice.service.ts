@@ -240,7 +240,7 @@ Validateuser1(email,password):any{
 
 // 6th post
 
-UserAddressInsert():any{
+UserAddressInsert(user:any):any{
   var body={
     'GUID':'5465646',
     'Name':'Smith',
@@ -285,11 +285,11 @@ UserAddressUpdate():any{
 // 8th post
 
 
-GenerateBookingOTP():any{
+GenerateBookingOTP(name,email,phone):any{
   var body={
-    'Customer':'Fajar',
-    'Email':'fajarpm%40gmail.com',
-    'Mobile':'9567775511'
+    'Customer':name,
+    'Email':email,
+    'Mobile':phone
     
   };
 

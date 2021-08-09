@@ -13,7 +13,7 @@
 
 .pday{
   position: relative;
-    right: 95px;
+    right: 95px ;
 }
 .ptime{
   position: relative;
@@ -535,8 +535,8 @@ img {
 
 
 .div-block-46 {
-  position: relative;
-  bottom: auto;
+ 
+ 
   z-index: 999999999;
   overflow: hidden;
   width: 300px;
@@ -551,9 +551,6 @@ img {
 }
 
 .head {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   padding: 10px;
@@ -3373,8 +3370,6 @@ input[type=number]::-webkit-outer-spin-button {
   .cart{
     width: 3rem;
   display: none !important;
-  
-  
     position: fixed;
   left: auto;
   right: 4%;
@@ -4065,12 +4060,25 @@ input[type=number]::-webkit-outer-spin-button {
       width: 25rem;
       margin-left: 10px;
   }
-  
+  .set{
+    position: absolute;
+    bottom: 0%;
+    padding: 10px 20px;
+    margin-left: 15%;
+  }
+  .bn{
+    margin-bottom: 10px;
+  }
+  .pr{
+    margin-left: 30%;
+  }
   
   
   .div-block-46 {
-    position: static;
-    top: 100px;
+   
+    top:5px;
+    left: 40rem;
+    bottom: 37rem !important;
     bottom: auto;
     z-index: 999999999;
     overflow: hidden;
@@ -4087,9 +4095,6 @@ input[type=number]::-webkit-outer-spin-button {
   }
   
   .head {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
     padding: 10px;

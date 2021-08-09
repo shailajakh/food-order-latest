@@ -1,6 +1,8 @@
 import { ApiserviceService } from './../apiservice.service';
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../service/token-storage.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-table-booking',
@@ -8,12 +10,54 @@ import { TokenStorageService } from '../service/token-storage.service';
   styleUrls: ['./table-booking.component.scss']
 })
 export class TableBookingComponent implements OnInit {
-
-  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService) { }
+  tableBookingForm: FormGroup;
+  constructor(private apiserviceService: ApiserviceService,private _http : HttpClient ,private tokenStorage : TokenStorageService ,private fb: FormBuilder) { }
   tab='one';
-  ngOnInit(): void {
-   
+  modalForm = new FormGroup({
+  
+    Person: new FormControl(),
+    Date: new FormControl(),
+    Time: new FormControl()
+  })
 
+  ngOnInit(): void { 
+    this.tableBookingForm = this.fb.group({
+      Name: ['',Validators.required],
+      Email:['',Validators.compose([Validators.required,Validators.email])],
+      Mobile:['',Validators.required],
+      OTP:['',Validators.required]
+     });
+   }
+   
+   showOtpfeild_otp = false;
+    requestOTP_TB(name,email,phone){
+      this.apiserviceService.GenerateBookingOTP(name,email,phone).subscribe((response)=>{
+        console.log(response);
+        if(response.Result=="1"){
+
+          this.showOtpfeild_otp = true;
+        }
+
+      })
+    }
+    T_booked=false;
+    tableBooked(){
+      this.T_booked=true;
+
+    }
+    person:any;
+    date:any;
+    time:any;
+
+    tBooking(user)
+    {
+      this.person=user.Person;
+      this.date=user.Date;
+      this.time=user.Time;
+
+
+    }
+  tableBooking(){
 
   }
  

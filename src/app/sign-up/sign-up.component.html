@@ -51,43 +51,7 @@
                         </div>
                       </a>
                     
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <form [formGroup]="loginForm" >
-                                <div class="row">
-                                  <div class="col-md-2">
-                                    <label for="FormControlEmail" style="color: lightseagreen;font-size: medium;" ></label>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-md-2">
-                                      <label for="FormControlPassword" style="color: lightseagreen;font-size: medium;" ></label>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <input type="password" formControlName="Password" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-                                    </div>
-                                    
-                                  </div>
-                                 
-                                </div>
-                              </form>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
+ 
                     
                     <div class="div-block-6-copy">
                       <div class="_1px-div-line"></div>
@@ -96,7 +60,7 @@
                     </div>
 
                       
-                     <form [formGroup]="registrationForm" (ngSubmit)="ValidateUser_1(registrationForm.value)" > 
+                     <form [formGroup]="registrationForm" (ngSubmit)="ValidateUser_1()" > 
 
                       <div class="formGroup" >
                       <div class ="" style="position: relative;margin-left: 25%;width:800px;">
@@ -147,16 +111,22 @@
                           <label for="Mobile"></label>
                           <div class="col-md-5">
                             <input type="text" formControlName="Mobile" class="form-control" placeholder="Mobile" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
-                          </div>
+                          </div><br>
                           
                        
-                            <label for="FormControlEmail"  ></label>
+                            
                           
-                          <div class="col-md-5">
-                            <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                            <div class="col-md-7" style="display: flex;margin-right: 10px;">
+
+                              <label for="FormControlEmail"  ></label>
+                              <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                            
+                            <div class="col-md-4" style="margin-left: 10px;">
+                            <button class="btn btn-warning" type="button" (click)="requestOTP(registrationForm.value.Email)" >SEND OTP</button>
+                            </div>
+                          </div> <br>
+                              
                           
-                          <button type="button" (click)="requestOTP(registrationForm.value.Email)" >send otp</button>
-                        </div>
                         
                         <div class="row" *ngIf="showOtpfeild">
                             <label for="OTP"  ></label>
@@ -164,7 +134,7 @@
                             <input type="text" formControlName="OTP" class="form-control" placeholder="OTP" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
                           </div>
                        
-                        </div>
+                        </div><br>
                         
                       </div>
                       <button type="submit" style="margin-left: 39%;"  class="btn btn-outline-success" ><b>Register</b></button>

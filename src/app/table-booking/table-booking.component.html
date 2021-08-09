@@ -56,8 +56,10 @@
   <h3 class="lg-heading">TABLE BOOKING</h3>
 
   <div class="hedder-content tb">
-    <form class="form-3">
-      <select id="field-10" name="field-10" class="res-tb-select-field person tb-new w-select">
+     <form  >
+      <div class="formGroup" >
+      <label for="FormControlPerson" ></label>
+      <select id="field-10" name="Person" class="form-control res-tb-select-field person tb-new w-select" formControlName="Person">
         <option value="1">1 Person</option>
         <option value="2">2 People</option>
         <option value="3">3 People</option>
@@ -78,9 +80,11 @@
         <option value="Another Choice">20 People</option>
       </select>
 
-      <input type="date" class="res-tb-select-field person tb-new w-select">
+      <label for="FormControlDate" ></label>
+      <input type="date" name="Date" class="form-control res-tb-select-field person tb-new w-select" formControlName="Date">
 
-      <select id="field-10" name="field-10" class="res-tb-select-field person tb-new w-select">
+      <label for="FormControlTime" ></label>
+      <select id="Time" name="Time" class="res-tb-select-field person tb-new w-select" formControlName="Time">
         <option value="Another Choice">9:00 AM</option>
         <option value="Another Choice">9:30 AM</option>
         <option value="Another Choice">10:00 AM</option>
@@ -118,8 +122,8 @@
         BOOK NOW
       </button>
 
-
-    </form>
+    </div>
+    </form> 
   </div>
 </header>
 </div>
@@ -220,18 +224,36 @@
                         </div>
                         <div class="tb-food-menu-mainlleft right">
                           <div class="your-details-form w-form">
-                            <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
-                              <div class="ur-details-input-div"><input type="text" class="ur-details-input-field w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required=""></div>
-                              <div class="ur-details-input-div"><input type="email" class="ur-details-input-field w-input" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required=""></div>
-                              <div class="ur-details-input-div"><input type="tel" class="ur-details-input-field w-input" maxlength="256" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="+123 456 7890" id="txtTbContactNumber" required=""></div>
-                              <a href="#" class="your-details-submit-btn w-button">BOOK NOW</a>
-                              <div class="ur-details-input-div otp"><input type="number" class="ur-details-input-field w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
+                            <form [formGroup]="tableBookingForm" (ngSubmit)="tableBooking()"
+                            id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
+                            <div class="formGroup" >
+                              <div class="ur-details-input-div">
+                                <label for="FormControlName" ></label>
+                                <input type="text" formControlName="Name"
+                                class="form-control ur-details-input-field w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required="">
+                              </div>
+                              <div class="ur-details-input-div">
+                                <label for="FormControlEmail"></label>
+                                <input type="email" class=" form-control ur-details-input-field w-input" formControlName="Email" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required="">
+                              </div>
+                              <div class="ur-details-input-div">
+                                <label for="FormControlMobile"></label>
+                                <input type="tel" class="ur-details-input-field w-input" formControlName="Mobile" maxlength="15" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="Mobile Number" id="txtTbContactNumber" required="">
+                              </div>
+                              <button class="btn btn-warning" type="button" (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)" >SEND OTP</button>
+                            
+                              <div class="ur-details-input-div otp" *ngIf="showOtpfeild_otp">
+                                <input type="number" class="ur-details-input-field w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
                               <div class="your-submit-notfication">
                                 <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
                                 <div class="notifotpwrong-tb">Incorrect OTP. <a href="#">Resend OTP</a>
                                 </div>
                               </div>
-                              <div class="successfully-booked-tb">
+                              <br>
+                              <a  class="your-details-submit-btn w-button"(click)="tableBooked()">BOOK NOW</a>
+                            </div><br>
+
+                              <div class="successfully-booked-tb" *ngIf="T_booked">
                                 <div class="text-block-27"><span class="faa"></span>Successfully booked.</div>
                                 <div class="order-details-tb">
                                   <div class="success-booked"><span class="faa"></span>20-01-2021</div>
@@ -291,29 +313,47 @@
                 </div>
                 <div class="tb-food-menu-mainlleft right" style="width:500px">
                   <div class="your-details-form w-form">
-                    <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
-                      <div class="ur-details-input-div"><input type="text" class="ur-details-input-field w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required=""></div>
-                      <div class="ur-details-input-div"><input type="email" class="ur-details-input-field w-input" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required=""></div>
-                      <div class="ur-details-input-div"><input type="tel" class="ur-details-input-field w-input" maxlength="256" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="+123 456 7890" id="txtTbContactNumber" required=""></div>
-                      <a href="#" class="your-details-submit-btn w-button">BOOK NOW</a>
-                      <div class="ur-details-input-div otp"><input type="number" class="ur-details-input-field w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
-                      <div class="your-submit-notfication">
-                        <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
-                        <div class="notifotpwrong-tb">Incorrect OTP. <a href="#">Resend OTP</a>
-                        </div>
-                      </div>
-                      <div class="successfully-booked-tb">
-                        <div class="text-block-27"><span class="faa"></span>Successfully booked.</div>
-                        <div class="order-details-tb">
-                          <div class="success-booked"><span class="faa"></span>20-01-2021</div>
-                          <div class="success-booked"><span class="faa"></span>10:30 AM</div>
-                          <div class="success-booked"><span class="faa"></span>3 People</div>
-                        </div>
-                      </div>
-                      <div class="your-submit-notfication">
-                        <a href="#" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
-                      </div>
-                    </form>
+                    <form [formGroup]="tableBookingForm" (ngSubmit)="tableBooking()"
+                            id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
+                            <div class="formGroup" >
+                              <div class="ur-details-input-div">
+                                <label for="FormControlName" ></label>
+                                <input type="text" formControlName="Name"
+                                class="form-control ur-details-input-field w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required="">
+                              </div>
+                              <div class="ur-details-input-div">
+                                <label for="FormControlEmail"></label>
+                                <input type="email" class=" form-control ur-details-input-field w-input" formControlName="Email" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required="">
+                              </div>
+                              <div class="ur-details-input-div">
+                                <label for="FormControlMobile"></label>
+                                <input type="tel" class="ur-details-input-field w-input" formControlName="Mobile" maxlength="15" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="Mobile Number" id="txtTbContactNumber" required="">
+                              </div>
+                              <button class="btn btn-warning" type="button" (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)" >SEND OTP</button>
+                            
+                              <div class="ur-details-input-div otp" *ngIf="showOtpfeild_otp">
+                                <input type="number" class="ur-details-input-field w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
+                              <div class="your-submit-notfication">
+                                <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
+                                <div class="notifotpwrong-tb">Incorrect OTP. <a href="#">Resend OTP</a>
+                                </div>
+                              </div>
+                              <br>
+                              <a  class="your-details-submit-btn w-button"(click)="tableBooked()">BOOK NOW</a>
+                            </div><br>
+
+                              <div class="successfully-booked-tb" *ngIf="T_booked">
+                                <div class="text-block-27"><span class="faa"></span>Successfully booked.</div>
+                                <div class="order-details-tb">
+                                  <div class="success-booked"><span class="faa"></span>20-01-2021</div>
+                                  <div class="success-booked"><span class="faa"></span>10:30 AM</div>
+                                  <div class="success-booked"><span class="faa"></span>3 People</div>
+                                </div>
+                              </div>
+                              <div class="your-submit-notfication">
+                                <a href="#" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
+                              </div>
+                            </form>
                     <div class="w-form-done">
                       <div>Thank you! Your submission has been received!</div>
                     </div>

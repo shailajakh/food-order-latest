@@ -11,6 +11,8 @@ import { TokenStorageService } from '../service/token-storage.service';
 export class HomePageComponent implements OnInit {
   showMe: boolean=true;
   day:string="";
+  count:number=0;
+
   public today =Date.now();
   constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService){ }
    navData= null;
@@ -38,10 +40,11 @@ export class HomePageComponent implements OnInit {
       
   }
   
+  
 
   foodItems =[];
 
-  getEachItem(id){
+  getEachItem(id):any{
     this.apiserviceService.ItemGet(id).subscribe(
       (response) => {
         console.log("ItemGet receive responce",response);
@@ -49,6 +52,7 @@ export class HomePageComponent implements OnInit {
         if (response.Result) {
             console.log("getEachItem success!",response.Result); 
             this.foodItems = response.Result;
+            return this.foodItems;
         } else {
             return false;
         }
@@ -137,6 +141,28 @@ export class HomePageComponent implements OnInit {
   
     ]
   };
+  
+  addToCart(id:any){
+    this.count++;
+    this.cartDisp(id);
+
+
+
+  }
+  cartitem:any={};
+  itemdisp=[];
+  
+  cartDisp(itemid:any){
+    
+  this.cartitem= this.orderinsert;
+  for( let i=0;i<5;i++){
+    itemid=this.orderinsert.OrderDetails[i].ItemID;
+    this.getEachItem(itemid).subscribe((responce)=>this.cartitem=responce);
+    
+  }
+  
+
+  }
 
 orderinset(){
   this.apiserviceService.Orderinsert(this.orderinsert).subscribe(

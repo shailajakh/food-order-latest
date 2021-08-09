@@ -10,7 +10,7 @@ import { TokenStorageService } from '../service/token-storage.service';
 })
 export class CartPageComponent implements OnInit {
   tab='one';
-  loginForm = new FormGroup({
+  addreForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
     Deliverytype :new FormControl(''),
     Deliverylocation :new FormControl(''),
@@ -42,8 +42,9 @@ export class CartPageComponent implements OnInit {
       error => console.log("User useraddressGet failed!",error));
   }
 
-  loginUser(){
-    console.warn(this.loginForm.value);
+  userAddress(){
+    console.log("address",this.addreForm.value);
+    this.apiserviceService.UserAddressInsert(this.addreForm.value);
   }
   
 }

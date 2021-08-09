@@ -389,12 +389,12 @@ img {
   margin-left: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
-  border-bottom: 3px none #60b246;
   font-family: 'Varela Round', sans-serif;
   font-size: 15px;
   font-weight: 700;
   text-align: left;
 }
+
 .tabs {
   margin-top: 10px;
 }
@@ -416,7 +416,7 @@ img {
 .w-tab-menu {
   position: relative;
 }
-.tab-element.w--current {
+.tab-element:hover {
   border-radius: 0px;
   background-color: #60b246;
   color: #fff;
@@ -495,11 +495,7 @@ img {
   padding-left: 10px;
   text-align: left;
 }
-.tab-element.w--current {
-  border-radius: 0px;
-  background-color: #60b246;
-  color: #fff;
-}
+
 .tab-element {
   width: 170px;
   height: 40px;
@@ -591,20 +587,17 @@ label {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
   border: 1px solid #cccccc;
 }
 .w-form-done {
   display: none;
   padding: 20px;
   text-align: center;
-  background-color: #dddddd;
 }
 .w-form-fail {
   display: none;
   margin-top: 10px;
   padding: 10px;
-  background-color: #ffdede;
 }
 .choose-time-for-lter-field {
   width: auto;
@@ -642,14 +635,12 @@ label {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
   border: 1px solid #cccccc;
 }
 .w-form-done {
   display: none;
   padding: 20px;
   text-align: center;
-  background-color: #dddddd;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -1054,7 +1045,6 @@ input.w-button {
   display: none;
   padding: 20px;
   text-align: center;
-  background-color: #dddddd;
 }
 .w-form-fail {
   display: none;
