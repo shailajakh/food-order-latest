@@ -1,4 +1,4 @@
-import { ApiserviceService } from './../apiservice.service';
+import { ApiserviceService, Person } from './../apiservice.service';
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../service/token-storage.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,12 +13,12 @@ export class TableBookingComponent implements OnInit {
   tableBookingForm: FormGroup;
   constructor(private apiserviceService: ApiserviceService,private _http : HttpClient ,private tokenStorage : TokenStorageService ,private fb: FormBuilder) { }
   tab='one';
-  modalForm = new FormGroup({
+  tBookingForm = new FormGroup({
   
     Person: new FormControl(),
     Date: new FormControl(),
     Time: new FormControl()
-  })
+  });
 
   ngOnInit(): void { 
     this.tableBookingForm = this.fb.group({
@@ -49,13 +49,13 @@ export class TableBookingComponent implements OnInit {
     date:any;
     time:any;
 
-    tBooking(user)
+    tBooking(book:any)
     {
-      this.person=user.Person;
-      this.date=user.Date;
-      this.time=user.Time;
-
-
+      console.log("tbooking",book)
+      this.person=book.Person;
+    this.date=book.Date;
+    this.time=book.Time;
+   
     }
   tableBooking(){
 

@@ -1,6 +1,4 @@
 
-
-
 <div>
 <div id="backimg"class="head-sectionmnu">
   <div class="logo"><img src="..//assets/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
@@ -55,21 +53,34 @@
   </div>
 </div>
 
-<div class="row" >
-  <div class="card-group col-md-9" style="display: flex;margin-left: 20px;">
-    <div *ngFor="let item of foodItems" >
-      <div class="card" style="width: 18rem; margin:10px;height: 550px;background-color: rgb(246, 246, 248);">
-        <img [src]="item.URL" class="card-img-top" alt="..." style="position: relative;width: 90%;">
-        <div class="card-body">
-          <h5 class="card-title">{{item.Name}}</h5>
-          <p class="card-text">{{item.Description}}</p>
-          <div class=" set" >
-          
-          <button type="button" class="btn bg-warning bn" data-bs-toggle="modal" data-bs-target="#addOnModal" (click)="addToCart(item.ID)" >ADD TO CART</button><br>
-          <h5 class="card-text pr">{{item.Price| currency}}</h5>
-        </div>
+
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="card-group">
+    
+      <div *ngFor="let item of foodItems" >
+        <div class="box inline card">
+          <img [src]="item.URL" class="card-img-top mt-2" alt="..."style=" margin-left: 31px;">
+          <div class="card-body">
+            <div class="set" >
+              <button type="button" class="btn bn" data-bs-toggle="modal" data-bs-target="#addOnModal" (click)="addToCart(item.ID)" >ADD TO CART</button><br>
+          </div>
+          <p class="">{{item.Description |slice:0:20 }}{{item.Description.length>20?"...":""}}</p>
+            <div class="display">
+              <h5 class="card-title">{{item.Name}}</h5>
+              <!-- <label class="line"></label> -->
+              <hr class="new2">
+             
+              <h5 class="card-text pr">{{item.Price| currency}}</h5>
+            </div>
+           
+       
+            
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
   <div class="col-md-2" style="display: flex;">
@@ -122,7 +133,30 @@
     
     </div>
     </div>
+
 </div>
+
+ 
+
+  <!-- <div class="card-group col-md-9" style="display: flex;margin-left: 15px;">
+    <div *ngFor="let item of foodItems" >
+      <div class="card" style="width: 19rem; margin:5px;height: 500px;background-color: rgb(246, 246, 248);">
+        <img [src]="item.URL" class="card-img-top" alt="..." style="position: relative;width: 95%;">
+        <div class="card-body">
+          <div class="card-title"><h5 >{{item.Name}}</h5></div>
+          <div class="pr"><h5>{{item.Price| currency}}</h5></div>
+          
+          <p class="card-text">{{item.Description}}</p>
+          <div class=" set" >          
+          <button type="button" class="btn bn" data-bs-toggle="modal" data-bs-target="#addOnModal" (click)="addToCart(item.ID)" >ADD TO CART</button><br>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+
 
 
 

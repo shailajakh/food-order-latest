@@ -11,6 +11,21 @@
   align-items: center;
 }
 
+
+
+
+
+.card-img-top{
+  position: relative;
+  width: 264px;
+}
+.cll{
+  display: flex;margin-left: 20px;
+}
+.inline{
+  width: 18rem; margin:10px;height: 550px;background-color: rgb(246, 246, 248);
+}
+
 .pday{
   position: relative;
     right: 95px ;
@@ -975,6 +990,7 @@ width: 107%;
     .cart{
       display:block !important;
     }
+   
   }
 
 
@@ -1540,7 +1556,7 @@ img {
 
 
 .card-img-top{
-  width: 25rem;
+  width: 264px;
   height: 21rem;
 }
 .add{
@@ -4061,10 +4077,8 @@ input[type=number]::-webkit-outer-spin-button {
       margin-left: 10px;
   }
   .set{
-    position: absolute;
-    bottom: 0%;
-    padding: 10px 20px;
-    margin-left: 15%;
+    background-color: orange;
+    width: 100%;
   }
   .bn{
     margin-bottom: 10px;
@@ -5151,18 +5165,53 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
+// my css
+
+.card-body{
+  padding: 0px;
+  justify-content: space-between !important;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.card-img-top{
+  border-radius: 50%;
+  width: 218px !important;
+  margin-left: 32px;
+}
+
+.line{
+  width: 11rem;
+    height: 1px;
+    background-color: gray;
+}
+
+hr.new2 {
+  border-top: 1px dashed gray;
+  width: 143px;
+  margin-left: 1px;
+}
 
 
+.card-group{
+  margin-left: 6px;
+}
+.box{
+  box-shadow: 1px 0px 5px -2px;
+  max-height: 363px;
+  min-height: 363px;
+}
+.display{
+  display: inline-flex;
+  flex-direction: row;
+  padding: 2px 8px;
+  margin: 0px;
+}
+.pr{
+  color: orange;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.lorem{
+  position: static !important;
+  bottom: -4px;
+  // margin: 9px;
+}

@@ -60,7 +60,7 @@
                     </div>
 
                       
-                     <form [formGroup]="registrationForm" (ngSubmit)="ValidateUser_1()" > 
+                     <form [formGroup]="registrationForm" (ngSubmit)="registration(registrationForm.value)" > 
 
                       <div class="formGroup" >
                       <div class ="" style="position: relative;margin-left: 25%;width:800px;">
@@ -78,7 +78,7 @@
                             <label for="exampleFormControlSelect1" ></label>
                           
                           <div class="col-md-5">
-                            <select type="text" class="form-control" formControlName="Gender" name="Gender" id="exampleFormControlSelect1">
+                            <select type="text" class="form-control" formControlName="Gender" name="Gender" id="Gender">
                               <option value="SelectGender">Select Gender</option>
                               <option value="Male">Male</option>
                               <option value="Female">Female</option>
@@ -90,7 +90,7 @@
                             <label for="Age"  ></label>
                           
                           <div class="col-md-5">
-                            <input type="text" formControlName="Age" class="form-control" placeholder="Age" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                            <input type="text" formControlName="Age" class="form-control" placeholder="Age" aria-label="Default" id="Age" aria-describedby="inputGroup-sizing-default" required>
                           </div>
 
                        

@@ -11,9 +11,12 @@ import { TokenStorageService } from '../service/token-storage.service';
 export class CartPageComponent implements OnInit {
   tab='one';
   addreForm = new FormGroup({
-    email:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-    Deliverytype :new FormControl(''),
-    Deliverylocation :new FormControl(''),
+    GUID :new FormControl(''),
+    Name : new FormControl(''),
+    Mobile :new FormControl(''),
+    Email:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+    AddressType :new FormControl(''),
+    DeliveryLocation :new FormControl(''),
     Street :new FormControl(''),
     Suburb :new FormControl(''),
     City :new FormControl(''),
@@ -42,9 +45,36 @@ export class CartPageComponent implements OnInit {
       error => console.log("User useraddressGet failed!",error));
   }
 
-  userAddress(){
-    console.log("address",this.addreForm.value);
-    this.apiserviceService.UserAddressInsert(this.addreForm.value);
+  userAddress(user:any){
+    var body={
+      'GUID':'5465646',
+      'Name':user.Name,
+      'Mobile':user.Mobile,
+      'Email':user.Email,
+      'AddressType':user.AddressType,
+      'DeliveryLocation':user.DeliveryLocation,
+      'Street':user.Street,
+      'Suburb':user.Suburb,
+      'City':user.City,
+      'Pincode':user.Pincode
+      
+    };
+    this.apiserviceService.UserAddressInsert(body).subscribe(
+      (response) => {
+        console.log("UserAddressInsert receive responce",response);
+
+        if (response.Result) {
+            this.address = response.Result;
+            return response.Result;
+        } else {
+            return false;
+        }
+      },
+      error => console.log("UserAddressInsert failed!",error));
   }
   
+  forLater=false;
+  forLater_set(){
+    this.forLater=true;
+  }
 }

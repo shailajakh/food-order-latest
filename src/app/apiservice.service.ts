@@ -240,20 +240,20 @@ Validateuser1(email,password):any{
 
 // 6th post
 
-UserAddressInsert(user:any):any{
-  var body={
-    'GUID':'5465646',
-    'Name':'Smith',
-    'Mobile':'854625',
-    'Email':'smith%40s.com',
-    'AddressType':'home',
-    'DeliveryLocation':'123%20kmkmkm%20kmkmk',
-    'Street':'main%20st',
-    'Suburb':'sdsds',
-    'City':'city%20name',
-    'Pincode':'8546'
+UserAddressInsert(body:any):any{
+  // var body={
+  //   'GUID':'5465646',
+  //   'Name':user.Name,
+  //   'Mobile':user.Mobile,
+  //   'Email':user.Email,
+  //   'AddressType':user.AddressType,
+  //   'DeliveryLocation':user.DeliveryLocation,
+  //   'Street':user.Street,
+  //   'Suburb':user.Suburb,
+  //   'City':user.City,
+  //   'Pincode':user.Pincode
     
-  };
+  // };
 
   return this._http.post<any>('https://tketz.in/api/wm/UserAddressInsert',body);
 }
@@ -396,6 +396,16 @@ TableBookingInsertStep2():any{
   };
 
   return this._http.post<any>('https://tketz.in/api/wm/TableBookingInsertStep2',body);
+}
+
+latitude = null;
+longitude = null;
+address = "";
+readAddress(){
+  this._http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + 
+  this.address + '&key=X').subscribe((result)=>{
+    //result.data.results
+  })
 }
 
 

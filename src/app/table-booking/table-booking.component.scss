@@ -151,10 +151,8 @@
     position: absolute;
     text-align: center;
     color: rgb(17, 16, 16);
-    display: block;
-    clear: both;
     height:280px;
-    width:500px;
+    width:350px;
     background-color: white;
     top:50%;
     left:50%;
@@ -182,45 +180,24 @@
     -ms-flex-direction: column;
     flex-direction: column;
     display: flex;
-    padding: 25px 40px;
     -webkit-box-align: center;
     align-items: center;
     border-radius: 3px;
 }
-.res-tb-select-field.person.tb-new {
+.field{
+    position: relative;
     width: 100%;
     height: 40px;
-    margin-bottom: 20px;
-}
-.res-tb-select-field.person {
-    padding-right: 20px;
-    padding-left: 10px;
+    margin-bottom: 10px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-.res-tb-select-field {
-    width: auto;
-    height: 50px;
-    min-width: 150px;
-    margin-bottom: 0px;
-    padding-right: 20px;
-    padding-left: 10px;
-    clear: none;
-    font-size: 15px;
-    font-weight: 500;
-    -o-object-fit: fill;
-    object-fit: fill;
-}
+
+
 .w-select {
     background-color: #f3f3f3;
 }
-.w-input, .w-select {
-    display: block;
-    padding: 8px 12px;
-    line-height: 1.428571429;
-    color: #333333;
-    border: 1px solid #cccccc;
-}
+
 
 
 .res-tb-submit {
@@ -238,14 +215,7 @@
     background-color: #ffa332;
     font-weight: 600;
 }
-.w-button {
-    padding: 9px 15px;
-    color: white;
-    border: 0;
-    line-height: inherit;
-    text-decoration: none;
-    cursor: pointer;
-}
+
 .setab {
     width: 100%;
     background-color: #b9b9b9;
@@ -322,21 +292,8 @@
     border-radius: 3px;
     background-color: #fff;
 }
-.res-tb-select-field.person {
-    padding-right: 20px;
-    padding-left: 10px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-}
-.res-tb-select-field {
-    width: auto;
-    height: 50px;
-    clear: none;
-    font-size: 15px;
-    font-weight: 500;
-    -o-object-fit: fill;
-    object-fit: fill;
-}
+
+
 .w-select {
     background-color: #f3f3f3;
 }
@@ -495,86 +452,46 @@ img {
 }
 .form-3-yur-details {
     display: flex;
-    overflow: auto;
-    height: 65vh;
-    min-height: 420px;
-    margin-bottom: 20px;
-    padding: 25px 40px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-box-align: center;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding: 5px 10px;
     align-items: center;
     border-radius: 0.8rem;
     background-color: #fff;
 }
 .ur-details-input-div {
-    display: flex;
     width: 100%;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
 }
-.ur-details-input-field {
-    height: 45px;
-}
+
 .w-input, .w-select {
+    padding: 5px 5px;
+    line-height: 1.428571429;
     display: block;
     width: 100%;
-    height: 38px;
-    padding: 8px 12px;
-    margin-bottom: 10px;
+    height: 30px;
+    margin-bottom: 3px;
     font-size: 14px;
-    line-height: 1.428571429;
     color: #333333;
     background-color: #ffffff;
     border: 1px solid #cccccc;
 }
 .w-button {
-    display: inline-block;
-    padding: 9px 15px;
     background-color: #3898EC;
     color: white;
     border: 0;
-    line-height: inherit;
     text-decoration: none;
     cursor: pointer;
     border-radius: 0;
+    padding: 9px 15px;
 }
-.ur-details-input-div.otp {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin-top: 10px;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-}
-.ur-details-input-div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
+
+
 .your-submit-notfication {
-    display: block;
     width: 100%;
     margin-top: 5px;
 }
+
 .notifotp-tb {
     margin-bottom: 5px;
     color: #60b246;
@@ -622,11 +539,7 @@ img {
     font-weight: 600;
     text-align: left;
 }
-.your-submit-notfication {
-    display: block;
-    width: 100%;
-    margin-top: 5px;
-}
+
 .text-block-28 {
     margin-top: 10px;
     padding: 5px 10px;
@@ -657,8 +570,17 @@ img {
         width:200px;
         height: 200px;
     }
+    @media screen and (max-width:2560px){
+    .booking{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50 -50);
+    }}
+
     
 }
+
+    
 
 
 

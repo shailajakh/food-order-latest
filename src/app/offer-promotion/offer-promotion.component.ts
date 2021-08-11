@@ -13,5 +13,6 @@ export class OfferPromotionComponent implements OnInit {
   }
 
   tab='one';
+  
 
 }

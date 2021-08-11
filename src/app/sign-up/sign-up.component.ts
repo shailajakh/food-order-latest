@@ -138,7 +138,7 @@ showOtpfeild = false;
     this.tokenStorage.removeToken();
     this.alerts=[];
     //console.log(user);
-        this.ValidateUser_1()
+        this.registration(user)
             .subscribe((result) => {
               this.globalResponse = result;              
             },
@@ -214,25 +214,28 @@ showOtpfeild = false;
     this.isLoggedIn=false;
     this.tokenStorage.removeToken();
   }
-  ValidateUser_1 ()
+  
+  registration(reg:any)
   {  
     
     // var userData = "FirstName=" + user.FirstName + "&LastName=" + user.LastName + "&Gender=" + user.Gender + "&Age=" + user.Age + "&DOB=" + user.DOB + "&Password=" + user.Password + "&Mobile=" + user.Mobile + "&OTP=" + user.OTP + "&Email=" + user.Email;
     // console.log("ValidateUser",userData)
     var body={
-      'FirstName': this.registrationForm.value.FirstName,
-     'LastName': this.registrationForm.value.LastNam ,
-      'Gender': this.registrationForm.value.Gender,
-      'Age':this.registrationForm.value.Age,
-      'DOB':this.registrationForm.value.DOB,
-      'Password':this.registrationForm.value.Password,
-      'Mobile':this.registrationForm.value.Mobile,
-      'OTP':this.registrationForm.value.OTP,
-      'Email':this.registrationForm.value.Email
+      'FirstName': reg.FirstName,
+     'LastName': reg.LastName ,
+      'Gender': reg.Gender,
+      'Age':reg.Age,
+      'DOB':reg.DOB,
+      'Password':reg.Password,
+      'Mobile':reg.Mobile,
+      'OTP':reg.OTP,
+      'Email':reg.Email
      
     };
-    return this.apiserviceService.Userinsert(body).subscribe((Response)=>
-    console.log(Response));
+    console.log("reg",body);
+   return  this.apiserviceService.Userinsert(body).subscribe((Response)=>
+    console.warn(Response));
+    
   }
 
 }

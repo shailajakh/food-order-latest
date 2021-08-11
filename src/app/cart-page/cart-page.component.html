@@ -131,55 +131,62 @@
             </div>
             <div class="modal-body">
 
-                <form  [formGroup]="addreForm" (ngSubmit)="userAddress()">
-                    <div class="d-flex mt-5">
-                    <div class="grp form-group">
+                <form  [formGroup]="addreForm" (ngSubmit)="userAddress(addreForm.value)">
+                  <div class="form-group">
+                  <div class="d-flex mt-5">
+                    <label for="FormControlName" ></label>
+                      <input type="text" class="form-control" name="Name"formControlName="Name" id="Name" aria-describedby="NameHelp" placeholder="Name" value="Name">
+                   
+                      <label for="FormControlMobile" ></label>
+                    <div class="side form-group">
+                      <input type="text" class="form-control" name="Mobile" formControlName="Mobile"id="Mobile" placeholder="Mobile" value="Mobile">
                       
-                      <input type="email" formControlName="email" name="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                  </div>
+
+                    <div class="d-flex mt-5">
+                    <div class="grp ">
+                      <label for="FormControlEmail" ></label>
+                      <input type="Email" formControlName="Email" name="Email" class="form-control " id="FormControlEmail" aria-describedby="Email" placeholder="Enter email">
                         </div>
                     </div>
+                    
                     <div class="d-flex mt-5">
-                        <div class="form-group">
-                            <select name="Deliverytype" formControlName="Deliverytype" class="form-select" aria-label="Default select example">
+                      <label for="FormControlAddressType" ></label>
+                            <select name="AddressType" formControlName="AddressType" class="form-select" aria-label="Default select example">
                                 <option value="Address Type" selected>Address Type</option>
                                 <option value="Home">Home</option>
                                 <option value="Office">Office</option>
                               </select> 
-                        
-                            </div>
-                        <div class="side form-group">
-                        
-                          <input type="text" class="form-control w-100"name="Deliverylocation" formControlName="Deliverylocation" id="exampleInputtext" placeholder="Delivery Location">
+                              <label for="FormControlDeliveryLocation" ></label>  
+                        <div class="side">
+                          <input type="text" class="form-control w-100"name="DeliveryLocation" formControlName="DeliveryLocation" id="FormControlDeliveryLocation" placeholder="Delivery Location">
                         </div>
-                        </div>
-
-                        
+                    </div>
                         <div class="d-flex mt-5">
-                            <div class="form-group">
-                              
-                              <input type="text" class="form-control" name="Street"formControlName="Street" id="exampleInputtext" aria-describedby="StreetHelp" placeholder="Street">
-                                </div>
-                            <div class="side form-group">
-                            
-                              <input type="text" class="form-control" name="Suburb" formControlName="Suburb"id="exampleInputtext" placeholder="Suburb">
-                            </div>
-                            </div>
-
+                          <label for="FormControlStreet" ></label>
+                            <input type="text" class="form-control" name="Street"formControlName="Street" id="FormControlStreet" aria-describedby="StreetHelp" placeholder="Street">
+                        
+                          <div class="side form-group">
+                            <label for="FormControlSuburb" ></label>
+                            <input type="text" class="form-control" name="Suburb" formControlName="Suburb"id="FormControlSuburb" placeholder="Suburb">
+                          </div>
+                        </div>
                             <div class="d-flex mt-5">
-                                <div class="form-group">
-                                  
-                                  <input type="text" class="form-control" name="City" formControlName="City" id="exampleInputtext" aria-describedby="StreetHelp" placeholder="City">
-                                    </div>
-                                <div class="side form-group">
-                                
-                                  <input name="Pincode" max="6" formControlName="Pincode" type="number" class="form-control " id="exampleInputtext" placeholder="Pincode">
+                              <label for="FormControlCity" ></label>                                
+                                  <input type="text" class="form-control" name="City" formControlName="City" id="FormControlCity" aria-describedby="StreetHelp" placeholder="City">
+                                    
+                                  <label for="FormControlPincode" ></label>
+                                <div class="side">
+                                  <input name="Pincode" max="6" formControlName="Pincode" type="number" class="form-control " id="FormControlPincode" placeholder="Pincode">
                                 </div>
                                 </div>
                     
                                 <div class="modal-footer" >
                                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="margin-right: 10px;">Close</button>
-                                  <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Submit</button>
+                                  <button type="Submit" class="btn btn-primary" (click)="userAddress(addreForm.value)" data-bs-dismiss="modal">Submit</button>
                                 </div>
+                        </div>
                   </form>
             </div>
             
@@ -267,10 +274,10 @@
                                   <div>ASAP</div>
                                 </a>
                                 <a data-w-tab="Tab 2" class="tab-element w-inline-block w-tab-link" tabindex="-1" id="w-tabs-2-data-w-tab-1" href="#w-tabs-2-data-w-pane-1" role="tab" aria-controls="w-tabs-2-data-w-pane-1" aria-selected="false">
-                                  <div>For Later</div>
+                                 <div>For Later</div>
                                 </a>
                               </div>
-                              <div class="w-tab-content">
+                              <div class="w-tab-content" *ngIf="forLater">
                                 <div data-w-tab="Tab 1" class="asap w-tab-pane w--tab-active" id="w-tabs-2-data-w-pane-0" role="tabpanel" aria-labelledby="w-tabs-2-data-w-tab-0">
                                   <div>
                                     <div class="div-block-17">
