@@ -290,7 +290,12 @@ body {
 .star-fa._1 {
     margin-left: 5px;
 }
+.st{
+    margin-left: -10px;
+    font-size: 30px !important;
+}
 .star-fa {
+        
         margin-right: 5px;
         margin-left: 0px;
         font-family: 'Fa solid 900', sans-serif;
@@ -492,7 +497,7 @@ body {
      position: relative;
  }
  .tbtab-single.w--current {
-     border-color: #ffb803;
+     border-color: #c9c7c3;
      background-color: rgb(240, 229, 229);
      margin:1px;
  }
@@ -571,6 +576,8 @@ h4 {
     flex-wrap: wrap;
     -webkit-box-align: start;
     align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 
@@ -771,9 +778,9 @@ h4 {
 }
 .co-single {
     position: relative;
-    width: 30%;
-    height: 600px;
-    margin: 1%;
+    width: 100%;
+    height: 500px;
+    margin: 5%;
     padding-top: 10px;
     background-color: #fff;
     box-shadow: 0 3px 20px -6px rgb(0 0 0 / 21%);
@@ -1079,7 +1086,7 @@ input.w-button {
       .after-login-content{
           top:40px;
           width:80%;
-          height:1%;
+          height: auto;
       }
       .tbtab-single{
           width:2px;
@@ -1089,7 +1096,7 @@ input.w-button {
       .co-single{
         position: relative;
         width: 80%;
-        height: auto;
+        height: 500px;
         margin: 5%;
       }
     .imgs{
@@ -1128,7 +1135,7 @@ input.w-button {
     .co-single{
       position: relative;
       width: 100%;
-      height: auto;
+      height: 500px;
       margin: 3%;
     }
    
@@ -1141,7 +1148,7 @@ input.w-button {
     .star-fa._12 .fa-star{
         margin-right: 1px;
     color: #ffa332;
-    font-size: 5px;
+    font-size: 10px;
     line-height: 5px;
     }
     
@@ -1169,7 +1176,7 @@ input.w-button {
     .co-single{
       position: relative;
       width: 100%;
-      height: auto;
+      height: 450px;
       margin: 3%;
     }
    

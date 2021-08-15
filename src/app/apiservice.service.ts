@@ -48,38 +48,14 @@ export class ApiserviceService {
 CategoryGet(token:any):any{
 
                return this._http.get<any>('https://tketz.in/api/wm/CategoryGet');
-                // .subscribe(
-                //   (response) => {
-                //     console.log("CategoryGet receive responce",response);
-
-                //     if (response.Result) {
-                //         console.log("CategoryGet success!",response.Result);     
-                //         return response.Result;
-                //     } else {
-                //         return false;
-                //     }
-                //   },
-                //   error => console.log("User CategoryGet failed!",error));
-                
-                  
+                 
               }
 
 
 ItemGet(id):any{
 
                 return this._http.get<any>('https://tketz.in/api/wm/ItemGet?categoryID='+id)
-                // .subscribe(
-                //   (response) => {
-                //     console.log("ItemGet receive responce",response);
-
-                //     if (response.Result) {
-                //         console.log("CategoryGet success!",response.Result); 
-                //         return response.Result;
-                //     } else {
-                //         return false;
-                //     }
-                //   },
-                //   error => console.log("User CategoryGet failed!",error));
+                
               }
 
 ItemByIDGet():any{
@@ -398,12 +374,31 @@ TableBookingInsertStep2():any{
   return this._http.post<any>('https://tketz.in/api/wm/TableBookingInsertStep2',body);
 }
 
+
+
+PromotionGet(numStar):any{
+
+  return this._http.get<any>('https://tketz.in/api/wm/PromotionGet?star='+numStar)
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
 latitude = null;
 longitude = null;
-address = "";
-readAddress(){
+readAddress(addresss:any){
   this._http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + 
-  this.address + '&key=X').subscribe((result)=>{
+  addresss + '&key=X').subscribe((res)=>{
+    console.log(res)
     //result.data.results
   })
 }

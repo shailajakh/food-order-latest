@@ -20,6 +20,7 @@ export class HomePageComponent implements OnInit {
     // this.localStorage.removeToken();
      this.apiserviceService.readToken();
      //this.openingHours();
+    // this.apiserviceService.readAddress("shivnager bidar");
     this.apiserviceService.CategoryGet(this.localStorage.getToken()).subscribe(
       (response) => {
         console.log("CategoryGet receive responce",response);
