@@ -64,7 +64,7 @@
         <div class="card h-100">
           <img [src]="item.URL" class="card-img-top" alt="Image ">
           <div class="card-body" >
-            <h5 class="card-title">{{item.Name}}{{item.Name.length>3?"...................":""}}
+            <h5 class="card-title">{{item.Name}}{{item.Name.length>3?"...............":""}}
               {{item.Price| currency}}</h5>
             <p class="card-text ">{{item.Description |slice:0:50 }}{{item.Description.length>50?"...":""}}</p>
           </div>
@@ -84,11 +84,6 @@
           <div class="div-block-50 d-flex">
             <h1 class="heading-10">Cart</h1>
             <div class="text-block-33">{{count}}</div>
-          </div>
-        </div>
-        <div *ngFor="let item of foodItems" >
-          <div class="card" >
-            
           </div>
         </div>
     
