@@ -93,13 +93,14 @@
           <div class="food-listt">
             
             <div class="single-food-list">
-              <div *ngFor="let i of cartitem" >
+              <!-- <div *ngFor="let i of cartitem" > -->
+                <div>
               <div class="food-name-div">
-                <div class="cart-food-name"> {{i.cartitem.Name}}</div>     
+                <div class="cart-food-name"> {{"i.cartitem.Name"}}</div>     
                 <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addOnModal" class="customize-link">Customize <span class="customize-icon"><img src="../assets/orange.png"class="orange" alt=""></span></a>
               </div>
               <div class="cart-single-food-price">
-                <div>{{i.cartitem.Price | currency}}</div>
+                <div>{{"i.cartitem.Price | currency"}}</div>
                 <div class="cart-food-name-copy">
                   <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-5"><span class="food-name-ordered-number"><img src="../assets/close.svg" class="red"alt=""></span></a>
                 </div>
@@ -145,157 +146,119 @@
   <!-- Modal -->
   <div class="modal fade" id="addOnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      
       <div class="modal-content">
         <div class="modal-header">
-            <h3 class="heading-3">Pizza One</h3>
+            <h3 class="heading-3">{{addon_item.Name}}</h3>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
           ></button>
         </div>
-        
         <div class="modal-body">
           <div class="foood-img"id="getmot" >
             <!-- <div class="foood-img"id="getmot"> -->
-              <img src="/assets/pexels-ella-olsson-1640773.jpg" alt="pic" class="image-9"></div>
+              <img [src]=addon_item.URL alt="pic" class="image-9"></div>
           <div class="food-para-modal">
-            <p class="paragraph-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+            <p class="paragraph-4">{{addon_item.Description}} </p>
             <div class="div-block-7">
               <div class="details-2">
-                <div class="food-cat-2"><span class="text-span-2 red">Vegetarian</span><span class="text-span-4"></span></div>
-                <div class="food-cat-2"><span class="text-span-2 red">Eggetarian </span><span class="text-span-4"></span></div>
-                <div class="food-cat-2"><span class="text-span-2 red">Non-Veg </span></div>
+                <div class="food-cat-2"><span class="text-span-2 red">{{addon_item.FoodZone}}</span></div>
               </div>
             </div>
           </div>
+    <div *ngIf="addon_item.AddOns!==''">
+      <div *ngFor="let x of addon_item.AddOns">
+        <div *ngIf="x.IsRequireCustomerSelection =='1'">
           <div class="food-name-modl">
             <h3 class="heading-2">Addons</h3>
             <div class="text-block">( Required)</div>
           </div>
+          <div class="addon-list-selection-div-modal-2">
+            <div class="chaddon-checkbox w-form">
+              <form id="addonR-form" name="addonR-form" data-name="addonR Form">
+                <label class="w-checkbox checkbox-field-2">
+                  <input type="checkbox" id="checkbox-3" name="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input checkbox-2">
+                  <span class="checkbox-label-2 w-form-label">{{x.Name}}-{{x.Price}}</span></label>
+                </form>
+              <div class="w-form-done"></div>
+              <div class="w-form-fail"></div>
+              <div class="number-input" *ngIf="x.AvailableQuantity > '0'cal">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+              </div>
+            </div>
+          </div>
+      </div>
+
+        <div *ngIf="x.IsRequireCustomerSelection==='0'">
+        <div class="food-name-modl">
+          <h3 class="heading-2">Addons</h3>
+          <div class="text-block">( Optional)</div>
+        </div>
+     
+      <div *ngFor="let x of addon_item.AddOns">
+        <div class="addon-list-selection-div-modal-2">
+          <div class="chaddon-checkbox w-form">
+            <form id="addonO-form" name="addonO-form" data-name="addonO Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-3" name="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">{{x.Name}}-{{x.Price}}</span></label></form>
+            <div class="w-form-done"></div>
+            <div class="w-form-fail"></div>
+            <div class="number-input" *ngIf="x.AvailableQuantity > '0'">
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+              <input class="quantity" min="0" name="quantity" value="1" type="number">
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div>
+    </div>
+    </div>
+      <div *ngIf="addon_item.FoodTypes!=''">
+        <div *ngFor="let x of addon_item.FoodTypes">
+        <div *ngIf="x.IsRequireCustomerSelection=='1'">
+          <div class="food-name-modl">
+            <h3 class="heading-2">Food Type</h3>
+            <div class="text-block">(Required)</div>
+          </div>
           <div class="addon-list-selection-div-modal-2 border-radius">
             <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-6" name="checkbox-6" data-name="Checkbox 6" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Mayo</span></label></form>
+              <form id="FoodR-form" name="FoodR-form" data-name="FoodR Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Small<strong></strong></span></label></form>
               <div class="w-form-done"></div>
               <div class="w-form-fail"></div>
             </div>
           </div>
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-2" name="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Garlic Mayo</span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-3" name="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Yogurt &amp; Mint</span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-
-            </div>
-          </div>
+         
+        </div>
+        <div *ngIf="x.IsRequireCustomerSelection=='0'">
           <div class="food-name-modl">
-            <h3 class="heading-2">Addons</h3>
+            <h3 class="heading-2">Food Type</h3>
             <div class="text-block">(Optional)</div>
           </div>
-          <div class="addon-list-selection-div-modal-2">
+          <div class="addon-list-selection-div-modal-2 border-radius">
             <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Mustard - <strong>10$</strong></span></label></form>
+              <form id="FoodO-form" name="FoodO-form" data-name="FoodO Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">{{x.Name}}-{{x.Price}}<strong></strong></span></label></form>
               <div class="w-form-done"></div>
               <div class="w-form-fail"></div>
-
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-
             </div>
           </div>
+        </div>
           
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Classic Dressing - <strong>5$</strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius-down">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Pepper - <strong>8$</strong></span></label>
-              </form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-
-            </div>
-          </div>
-          <div class="food-name-modl">
-            <h3 class="heading-2">Food Type</h3>
-            <div class="text-block">(Required)</div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Small<strong></strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Medium<strong></strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius-down">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Large<strong></strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="food-name-modl">
-            <h3 class="heading-2">Food Type</h3>
-            <div class="text-block">(Optional)</div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Small<strong></strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Medium<strong></strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius-down">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Large<strong></strong></span></label></form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
-          </div>
+      </div>
+        </div>
+        
+      <div *ngIf= "addon_item.CombineItems!=''">
+        <div *ngFor="let x of addon_item.CombineItems">
+          <div *ngIf="x.IsRequireCustomerSelection=='1'">
           <div class="food-name-modl">
             <h3 class="heading-2">Extras</h3>
             <div class="text-block">(Required)</div>
           </div>
           <div class="addon-list-selection-div-modal-2 border-radius">
             <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Pepsi - <strong>10$</strong></span></label>
+              <form id="comboR-form" name="comboR-form" data-name="comboR Form">
+                <label class="w-checkbox checkbox-field-2">
+                <input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">{{x.Name}} - <strong>{{x.Price|currency}}</strong></span></label>
                 
               </form>
               <div class="w-form-done"></div>
@@ -309,44 +272,19 @@
 
             </div>
           </div>
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Coca-Cola - <strong>10$</strong></span></label>
-                
-              </form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-              
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius-down">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Mirinda - <strong>8$</strong></span></label>
-                
-              </form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-
-            </div>
-          </div>
+        </div>
+          
+        <div *ngIf="x.IsRequireCustomerSelection=='0'">
           <div class="food-name-modl">
+            
             <h3 class="heading-2">Extras</h3>
             <div class="text-block">(Optional)</div>
           </div>
           <div class="addon-list-selection-div-modal-2 border-radius">
             <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Pepsi - <strong>10$</strong></span></label>
+              <form id="comboO-form" name="comboO-form" data-name="comboO Form">
+                <label class="w-checkbox checkbox-field-2">
+                  <input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">{{x.Name}} - <strong>{{x.Price}}</strong></span></label>
                 
               </form>
               <div class="w-form-done"></div>
@@ -360,38 +298,11 @@
 
             </div>
           </div>
-          <div class="addon-list-selection-div-modal-2">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Coca-Cola - <strong>10$</strong></span></label>
-                
-              </form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
+        </div>
+        </div> 
+        </div>
 
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-
-            </div>
-          </div>
-          <div class="addon-list-selection-div-modal-2 border-radius-down">
-            <div class="chaddon-checkbox w-form">
-              <form id="email-form" name="email-form" data-name="Email Form"><label class="w-checkbox checkbox-field-2"><input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">Mirinda - <strong>8$</strong></span></label>
-               
-              </form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-
-              <div class="number-input">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-              </div>
-
-            </div>
-          </div>
+          
           <div class="food-note">
             <div class="w-form">
               <form id="email-form-3" name="email-form-3" data-name="Email Form 3" ><label for="name" class="notes-label">Notes to Cook</label>
@@ -404,7 +315,7 @@
               </div>
             </div>
           </div>
-          <div class="add-qty-div">
+          <div class="add-qty-div" *ngIf="(addon_item.IsAddOnMultiSelect||addon_item.IsFoodTypeMultiSelect||addon_item.IsCombineItemMultiSelect)">
             <h3 class="heading-2">Quantity</h3>
             <div class="chaddon-checkbox w-form">
               <div class="number-input">

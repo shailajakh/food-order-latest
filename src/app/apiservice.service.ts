@@ -62,6 +62,10 @@ ItemByIDGet():any{
 
                 return this._http.get<any>('https://tketz.in/api/wm/ItemByIDGet?ID=10');
               }
+              ItemIDByGet(id: any):any{
+                debugger;
+                return this._http.get<any>('https://tketz.in/api/wm/ItemByIDGet?ID='+id);
+              }          
 UserAddressGet():any{
 
   return this._http.get<any>('https://tketz.in/api/wm/UserAddressGet?guid=40FE2447-BA30-4910-BB6F-F60F2E26A1A9');

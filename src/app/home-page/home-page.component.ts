@@ -145,25 +145,26 @@ export class HomePageComponent implements OnInit {
   
   addToCart(id:any){
     this.count++;
-    this.cartDisp(id);
+    this.addon(id);
 
 
 
   }
-  cartitem:any={};
+  addon_item:any={};
   itemdisp=[];
-  
-  cartDisp(itemid:any){
-    
-  this.cartitem= this.orderinsert;
-  for( let i=0;i<5;i++){
-    itemid=this.orderinsert.OrderDetails[i].ItemID;
-    this.getEachItem(itemid).subscribe((responce)=>this.cartitem=responce);
-    
+  varaddon=false;
+  addon(itemid:any){
+    debugger;
+    this.apiserviceService.ItemIDByGet(itemid).subscribe(
+      (response) => {
+        console.log("addon receive responce",response);
+        this.addon_item = response.Result;
+        if((this.addon_item.AddOns!=""))
+        {this.varaddon=true;}
+      },
+      error => console.log("addon failed!",error));
   }
   
-
-  }
 
 orderinset(){
   this.apiserviceService.Orderinsert(this.orderinsert).subscribe(

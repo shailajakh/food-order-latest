@@ -12,4 +12,6 @@ export class DeliveryChargesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
 }
